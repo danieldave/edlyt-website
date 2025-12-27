@@ -1,0 +1,281 @@
+/* =========================
+   EDLYT SOLUTIONS – STYLE
+   Day 2: Visual Layer
+========================= */
+
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #0f172a; /* deep navy */
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* ---------- UTILITIES ---------- */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: #cbd5f5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.logo h1 {
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.main-nav a {
+  font-size: 0.9rem;
+  color: #cbd5f5;
+}
+
+.cta-link {
+  color: #38bdf8;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.15), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.2), transparent 45%),
+    linear-gradient(180deg, #0f172a, #020617);
+}
+
+.hero-content {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.hero h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #020617;
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.45);
+}
+
+.btn-secondary {
+  margin-left: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #e5e7eb;
+}
+
+.btn-secondary:hover {
+  background: rgba(148, 163, 184, 0.1);
+}
+
+/* ---------- SECTIONS ---------- */
+section {
+  padding: 5rem 0;
+}
+
+/* ---------- SERVICES ---------- */
+.services h3 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.service-cards {
+  display: grid;
+  gap: 2rem;
+}
+
+.service-card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(56,189,248,0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.service-card h4 {
+  margin-bottom: 0.6rem;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 1.2rem;
+  color: #38bdf8;
+  font-size: 0.85rem;
+}
+
+/* ---------- WHY EDLYT ---------- */
+.why-edlyt {
+  background: #020617;
+}
+
+.why-list {
+  list-style: none;
+  max-width: 600px;
+  margin: 2rem auto 0;
+}
+
+.why-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+/* ---------- HOW IT WORKS ---------- */
+.steps {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.step {
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 16px;
+  padding: 1.8rem;
+  text-align: center;
+}
+
+.step span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #38bdf8;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- ABOUT ---------- */
+.about p {
+  max-width: 700px;
+  margin-top: 1rem;
+}
+
+/* ---------- CONTACT ---------- */
+.contact {
+  background:
+    radial-gradient(circle at center, rgba(99, 102, 241, 0.15), transparent 60%);
+  text-align: center;
+}
+
+.contact p {
+  margin: 1rem 0 2rem;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (min-width: 768px) {
+  .service-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.service-card i {
+  width: 28px;
+  height: 28px;
+  color: #38bdf8;
+  margin-bottom: 1rem;
+}
