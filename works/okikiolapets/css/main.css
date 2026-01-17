@@ -1,0 +1,416 @@
+/* ===========================
+   EDLYT / SMARTDEV PRO
+   PREMIUM CHURCH DESIGN SYSTEM
+   =========================== */
+
+/* -------- CSS RESET -------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-color: #f8f6f2;
+  color: #2b2b2b;
+  line-height: 1.6;
+}
+
+/* -------- COLOR TOKENS -------- */
+:root {
+  --primary: #1f4d3a;        /* Methodist green */
+  --secondary: #8b6f3d;      /* Gold / heritage */
+  --accent: #5c2d91;         /* Methodist purple */
+  --light: #ffffff;
+  --muted: #e6e3dc;
+  --dark: #1a1a1a;
+  --danger: #b33a3a;
+}
+
+/* -------- TYPOGRAPHY -------- */
+h1, h2, h3, h4, h5 {
+  font-family: 'Georgia', serif;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.6rem; }
+
+p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-title span {
+  display: block;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+/* -------- LAYOUT -------- */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+/* -------- NAVIGATION -------- */
+header {
+  background: var(--primary);
+  color: var(--light);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+
+.navbar .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  color: var(--light);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.navbar a:hover {
+  color: var(--secondary);
+}
+
+/* -------- HERO -------- */
+.hero {
+  background: linear-gradient(
+      rgba(31, 77, 58, 0.85),
+      rgba(31, 77, 58, 0.85)
+    ),
+    url('../images/church-bg.jpg') center/cover no-repeat;
+  color: var(--light);
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.hero h1 {
+  color: var(--light);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #f1f1f1;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* -------- BUTTONS -------- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  margin-top: 1.5rem;
+  background: var(--secondary);
+  color: var(--light);
+  border: none;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--accent);
+}
+
+/* -------- CARDS -------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--light);
+  padding: 2rem;
+  border-left: 4px solid var(--secondary);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin-bottom: 0.8rem;
+}
+
+/* -------- WORSHIP & SERVICES -------- */
+.service-time {
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* -------- SERMONS -------- */
+.sermon {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.sermon audio,
+.sermon video {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* -------- IMAGE GALLERY -------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 3px solid var(--muted);
+}
+
+/* -------- CONTACT -------- */
+.contact-box {
+  background: var(--muted);
+  padding: 2rem;
+}
+
+/* -------- FOOTER -------- */
+footer {
+  background: var(--dark);
+  color: #ccc;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.85rem;
+}
+
+/* -------- ADMIN DASHBOARD -------- */
+.admin-wrapper {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  background: var(--primary);
+  color: var(--light);
+  padding: 2rem 1rem;
+}
+
+.admin-sidebar h3 {
+  color: var(--light);
+  margin-bottom: 2rem;
+}
+
+.admin-sidebar ul {
+  list-style: none;
+}
+
+.admin-sidebar li {
+  margin-bottom: 1rem;
+}
+
+.admin-sidebar a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.admin-sidebar a:hover {
+  color: var(--secondary);
+}
+
+.admin-main {
+  padding: 2rem;
+  background: #f4f4f4;
+}
+
+.admin-card {
+  background: var(--light);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* -------- FORMS -------- */
+input, textarea, select {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none;
+  }
+
+  .admin-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    display: none;
+  }
+}
+
+/* ===== NAVIGATION ===== */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #ffffff;
+    display: none;
+    padding: 20px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 10px 0;
+  }
+}
+
+
+/* Global rhythm polish */
+h1, h2, h3, h4 {
+  line-height: 1.3;
+}
+
+p {
+  line-height: 1.8;
+}
+
+section > .container > h3 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+/* NAV GLOBAL */
+.site-header {
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,.05);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    padding: 20px;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}

@@ -1,0 +1,216 @@
+:root {
+  --primary: #2e7d32;
+  --secondary: #f5f7f6;
+  --text: #222;
+  --muted: #666;
+  --white: #fff;
+  --radius: 8px;
+  --max-width: 1100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background: var(--white);
+}
+
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.narrow {
+  max-width: 720px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HEADER */
+.header {
+  border-bottom: 1px solid #eee;
+  background: var(--white);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.nav nav a {
+  margin-left: 20px;
+  font-weight: 500;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  border: 1px solid var(--primary);
+}
+
+.btn-primary {
+margin-top: 3rem;
+  background: var(--primary);
+  color: var(--white);
+}
+
+
+.btn-contact {
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* HERO */
+.hero {
+  background:
+    linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
+    url("https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&auto=format&fit=crop&q=60")
+    center/cover no-repeat;
+  color: var(--white);
+  padding: 120px 0;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h2 {
+  font-size: 2.6rem;
+  margin-bottom: 15px;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px 0;
+}
+
+.section-alt {
+  background: var(--secondary);
+}
+
+.section h3 {
+  font-size: 1.9rem;
+  margin-bottom: 25px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.card h4 {
+  margin-bottom: 10px;
+}
+
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 16px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+/* LIST */
+.list {
+  list-style: none;
+}
+
+.list li {
+  margin-bottom: 12px;
+}
+
+/* CTA */
+.cta {
+  background: var(--primary);
+  color: var(--white);
+  text-align: center;
+  padding: 80px 0;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 25px;
+  border-top: 1px solid #eee;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ================= BUTTON SYSTEM ================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  border-radius: 999px; /* Premium pill */
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+/* PRIMARY ACTION */
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(46, 125, 50, 0.45);
+}
+
+/* OUTLINE / NAV ACTION */
+.btn-outline {
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* WHATSAPP CTA */
+.btn-whatsapp {
+  background: #25D366;
+  color: var(--white);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(37, 211, 102, 0.55);
+}
