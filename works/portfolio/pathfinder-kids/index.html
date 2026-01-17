@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Student Skill Pathfinder</title>
+  <meta name="description" content="Discover your strengths, learning style, and fun projects — playful, modern career and skill discovery app for kids and teens." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    /* ---------------------------
+       AI Student Skill Pathfinder
+       Premium UI Redesign
+       Clean, playful, high-converting layout
+       --------------------------- */
+
+    :root {
+      --bg: #f5f9ff;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --primary: #3B82F6;
+      --secondary: #34D399;
+      --highlight: #FCD34D;
+      --radius: 16px;
+      --glass: rgba(255,255,255,0.65);
+      font-family: 'Poppins',system-ui,Segoe UI,Roboto,-apple-system, sans-serif;
+    }
+
+    *{box-sizing:border-box;}
+    html,body{height:100%;margin:0;padding:0;background:var(--bg);color:#0f172a;}
+    body{padding:24px;line-height:1.4;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+
+    /* Layout */
+    .app{max-width:1150px;margin:0 auto;display:grid;gap:24px;}
+    header{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;}
+    .brand{display:flex;align-items:center;gap:12px;}
+    .logo{width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,#60a5fa,#3b82f6);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px;box-shadow:0 8px 24px rgba(59,130,246,0.18);}
+    .title{font-size:20px;font-weight:700;}
+    .tag{font-size:13px;color:var(--muted);}
+
+    /* Buttons */
+    .btn{border:0;padding:12px 20px;border-radius:12px;font-weight:600;cursor:pointer;transition:all 200ms ease;}
+    .btn-primary{background:var(--primary);color:white;box-shadow:0 8px 24px rgba(59,130,246,0.18);}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(59,130,246,0.25);}
+    .btn-ghost{background:transparent;border:1px solid rgba(15,23,42,0.08);}
+    .btn-ghost:hover{background:rgba(59,130,246,0.05);}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:32px;align-items:center;padding:24px;border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.7));box-shadow:0 8px 36px rgba(15,23,42,0.08);}
+    .hero h1{margin:0;font-size:36px;line-height:1.2;}
+    .hero p{margin:16px 0;color:var(--muted);}
+    .cta-row{display:flex;gap:16px;align-items:center;}
+    .hero-illustration{width:100%;display:flex;align-items:center;justify-content:center;}
+    .illu-card{width:100%;max-width:420px;padding:20px;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.75));box-shadow:0 12px 36px rgba(59,130,246,0.08);transition:transform 250ms ease;}
+    .illu-card:hover{transform:translateY(-6px);}
+    .illu-card img{width:100%;border-radius:16px;object-fit:cover;filter:drop-shadow(0 12px 24px rgba(0,0,0,0.08));}
+
+    /* Pages */
+    .pages{display:grid;gap:24px;}
+
+    /* Card */
+    .card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:0 8px 24px rgba(15,23,42,0.05);transition:box-shadow 250ms ease,transform 250ms ease;}
+    .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(15,23,42,0.08);}
+
+    /* Questionnaire */
+    .question-wrap{display:flex;flex-direction:column;gap:20px;}
+    .q-card{display:flex;gap:20px;align-items:center}
+    .q-avatar{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,#fbcfe8,#fcd34d);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:24px;color:white;}
+    .q-body{flex:1;}
+    .q-title{font-weight:700;font-size:16px;}
+    .q-sub{color:var(--muted);font-size:13px;margin-top:4px;}
+
+    /* Slider */
+    .slider{width:100%;height:40px;display:flex;align-items:center;gap:14px;margin-top:12px;}
+    .range{flex:1;}
+
+    /* Mini cards / choice */
+    .mini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+    .mini{padding:14px;border-radius:12px;background:linear-gradient(180deg,#ffffff,#f7fbff);cursor:pointer;transition:all 220ms cubic-bezier(.2,.9,.2,1);}
+    .mini:hover{transform:translateY(-6px);}
+    .mini.active{background:var(--primary);color:white;border:0;}
+
+    /* Tags */
+    .tags{display:flex;flex-wrap:wrap;gap:12px;}
+    .tag-pill{padding:8px 14px;border-radius:999px;background:linear-gradient(90deg,#fff,#fff);border:1px dashed rgba(15,23,42,0.08);cursor:pointer;transition:all 200ms ease;}
+    .tag-pill.active{background:var(--primary);color:white;border:0;}
+
+    /* Progress */
+    .progress{height:14px;background:rgba(15,23,42,0.08);border-radius:12px;overflow:hidden;margin-top:8px;}
+    .progress > span{display:block;height:100%;background:linear-gradient(90deg,#34d399,#3b82f6);width:0%;transition:width 250ms ease;}
+
+    /* Analysis / Dashboard */
+    .analysis-grid{display:grid;grid-template-columns:1fr 380px;gap:24px;}
+    .profile-summary{padding:20px;border-radius:18px;background:linear-gradient(180deg,#ffffff,#f7fbff);box-shadow:0 6px 20px rgba(15,23,42,0.05);}
+    .strengths{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+    .strength{padding:14px;border-radius:14px;background:linear-gradient(180deg,#ffffff,#f7fbff);transition:transform 220ms ease;}
+    .strength:hover{transform:translateY(-4px);}
+
+    .resource-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .resource{padding:14px;border-radius:14px;background:linear-gradient(180deg,#ffffff,#f7fbff);min-height:130px;transition:transform 220ms ease;}
+    .resource:hover{transform:translateY(-4px);}
+
+    .share-preview{padding:14px;border-radius:14px;background:linear-gradient(180deg,#ffffff,#f7fbff);min-height:140px;white-space:pre-line;line-height:1.4;}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .analysis-grid{grid-template-columns:1fr;}
+      .resource-grid{grid-template-columns:repeat(2,1fr);}
+      .hero h1{font-size:28px;}
+    }
+    @media (max-width:520px){
+      body{padding:16px;}
+      .resource-grid{grid-template-columns:1fr;}
+      .mini-grid{grid-template-columns:1fr 1fr;}
+    }
+
+    /* Micro-interactions */
+    .btn:active{transform:translateY(1px);}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <a href="#"><div class="logo">AS</div></a>
+        <div>
+          <div class="title">AI Student Skill Pathfinder</div>
+          <div class="tag">Discover strengths • Explore careers • Try projects</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <button class="btn btn-ghost" onclick="openAbout()">About</button>
+        <button class="btn btn-primary" id="startBtn" onclick="goTo('questionnaire')">Start Journey</button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero card" id="landing">
+      <div>
+        <h1>Discover Your Strengths, Learning Style & Fun Projects</h1>
+        <p>AI Student Skill Pathfinder helps kids and teens (8–18) explore what they love and learn best, with hands-on projects and playful guidance.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="goTo('questionnaire')">Start Your Journey</button>
+          <button class="btn btn-ghost" onclick="goTo('analysis')">See Sample Profile</button>
+        </div>
+        <div style="margin-top:16px;color:var(--muted);font-size:13px">Prototype UI — AI insights placeholder, ready for API integration.</div>
+      </div>
+      <div class="hero-illustration">
+        <div class="illu-card">
+          <img src="https://undraw.co/api/illustrations/ai" alt="hero" onerror="this.style.display='none'"/>
+          <div style="display:flex;gap:8px;margin-top:12px;align-items:center;justify-content:space-between">
+            <div style="font-weight:700">Adventure Mode</div>
+            <div style="font-size:12px;color:var(--muted)">Playful, step-by-step discovery</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGES -->
+    <main class="pages">
+
+      <!-- QUESTIONNAIRE PAGE -->
+      <section class="card" id="questionnaire" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div style="font-weight:700;font-size:16px">Questionnaire</div>
+          <div style="width:45%">
+            <div style="font-size:13px;color:var(--muted);margin-bottom:6px">Progress</div>
+            <div class="progress"><span id="qProgress"></span></div>
+          </div>
+        </div>
+        <div class="question-wrap" id="questionWrap"></div>
+        <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:16px">
+          <button class="btn btn-ghost" onclick="prevQ()">Back</button>
+          <button class="btn btn-primary" onclick="nextQ()" id="nextQBtn">Next</button>
+        </div>
+      </section>
+
+      <!-- ANALYSIS PAGE -->
+      <section class="card" id="analysis" style="display:none">
+        <div class="analysis-grid">
+          <div>
+            <div class="profile-summary">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div>
+                  <div style="font-weight:800;font-size:18px" id="studentName">Alex</div>
+                  <div style="color:var(--muted);font-size:13px">Age 13 • Sampletown</div>
+                </div>
+                <div style="text-align:right">
+                  <div style="font-weight:700;color:var(--secondary)">Explorer</div>
+                  <div style="font-size:12px;color:var(--muted)">Learning Vibe</div>
+                </div>
+              </div>
+
+              <hr style="margin:12px 0;border:none;border-top:1px dashed rgba(15,23,42,0.04)" />
+
+              <div id="profileSummaryText" style="color:var(--muted);font-size:14px;line-height:1.5">AI-generated summary will appear here.</div>
+
+              <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+                <button class="btn btn-ghost" onclick="goTo('resources')">See Resources</button>
+                <button class="btn btn-primary" onclick="goTo('export')">Export Profile</button>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;">
+              <div style="font-weight:700;margin-bottom:10px">Strength Categories</div>
+              <div class="strengths" id="strengthsGrid"></div>
+            </div>
+
+            <div style="margin-top:16px;">
+              <div style="font-weight:700;margin-bottom:10px">Suggested Scratch Projects</div>
+              <div class="mini-grid" id="scratchGrid"></div>
+            </div>
+          </div>
+
+          <aside>
+            <div class="card" style="position:sticky;top:22px">
+              <div style="font-weight:700;margin-bottom:10px">Ideal Subject Paths</div>
+              <div id="subjectPaths"></div>
+            </div>
+
+            <div style="height:12px"></div>
+
+            <div class="card">
+              <div style="font-weight:700;margin-bottom:10px">Career Explorer</div>
+              <div id="careerList" style="display:flex;flex-direction:column;gap:10px"></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- RESOURCES PAGE -->
+      <section class="card" id="resources" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div style="font-weight:700;font-size:16px">Resources</div>
+          <div style="color:var(--muted);font-size:13px">Curated videos, articles, and activities</div>
+        </div>
+        <div class="resource-grid" id="resourceGrid"></div>
+      </section>
+
+      <!-- EXPORT PAGE -->
+      <section class="card" id="export" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div style="font-weight:700;font-size:16px">Export & Share</div>
+          <div style="color:var(--muted);font-size:13px">PDF export placeholder • Social share mockups</div>
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <div class="share-preview" style="flex:1" id="sharePreview"></div>
+          <div style="width:320px;display:flex;flex-direction:column;gap:10px">
+            <button class="btn btn-primary" onclick="fakeExportPDF()">Download PDF (placeholder)</button>
+            <button class="btn btn-ghost" onclick="copyShareLink()">Copy shareable link</button>
+            <div style="font-size:13px;color:var(--muted);line-height:1.4;">Or screenshot to share with friends & teachers.</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer style="text-align:center;color:var(--muted);font-size:13px;padding:12px">Made with ❤️ for curious learners — Premium UI ready for AI integration</footer>
+  </div>
+
+  <script>
+    // ---------------------------
+    // JavaScript Logic (Questionnaire + Analysis)
+    // ---------------------------
+    const pages = ['landing','questionnaire','analysis','resources','export'];
+    function goTo(page){
+      pages.forEach(p=>document.getElementById(p).style.display=(p===page ? '' : 'none'));
+      if(page==='analysis') renderAnalysis(sampleProfile);
+      if(page==='resources') renderResources(sampleProfile);
+      if(page==='export') renderExport(sampleProfile);
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    function openAbout(){alert('AI Student Skill Pathfinder\nPremium UI — ready for AI and backend integration.');}
+
+    const questions = [
+      {id:1,avatar:'🧠',title:'How much do you like problem-solving?',sub:'Puzzles, logic, patterns',type:'slider',min:0,max:10,step:1,value:6},
+      {id:2,avatar:'🎨',title:'Do you enjoy drawing or creating visuals?',sub:'Art, design, storytelling',type:'slider',min:0,max:10,step:1,value:8},
+      {id:3,avatar:'💬',title:'Do you like explaining things to others?',sub:'Teaching, presenting, storytelling',type:'slider',min:0,max:10,step:1,value:5},
+      {id:4,avatar:'🧪',title:'Are you curious about science experiments?',sub:'Exploring and testing ideas',type:'slider',min:0,max:10,step:1,value:7}
+    ];
+    let currentQ=0;
+
+    function renderQuestion(){
+      const wrap=document.getElementById('questionWrap');
+      wrap.innerHTML='';
+      const q=questions[currentQ];
+      const card=document.createElement('div');card.className='q-card';
+      card.innerHTML=`
+        <div class="q-avatar">${q.avatar}</div>
+        <div class="q-body">
+          <div class="q-title">${q.title}</div>
+          <div class="q-sub">${q.sub}</div>
+          <div class="slider">
+            <input type="range" class="range" min="${q.min}" max="${q.max}" step="${q.step}" value="${q.value}" 
+              oninput="updateQValue(${currentQ},this.value)">
+            <span>${q.value}</span>
+          </div>
+        </div>`;
+      wrap.appendChild(card);
+    }
+
+    function updateQValue(idx,val){
+      questions[idx].value=val;
+      renderQuestion();
+      document.querySelectorAll('.range').forEach(r=>r.nextElementSibling.textContent=r.value);
+      updateProgress();
+    }
+
+    function nextQ(){
+      if(currentQ<questions.length-1){currentQ++;renderQuestion();updateProgress();}
+      else goTo('analysis');
+    }
+    function prevQ(){if(currentQ>0){currentQ--;renderQuestion();updateProgress();}else goTo('landing');}
+
+    function updateProgress(){
+      const p=((currentQ+1)/questions.length)*100;
+      document.getElementById('qProgress').style.width=p+'%';
+    }
+
+    // ---------------------------
+    // Sample Data for Analysis / Resources
+    // ---------------------------
+    const sampleProfile={
+      name:'Alex',age:13,location:'Sampletown',vibe:'Explorer',
+      summary:'Alex is curious, creative, and loves hands-on projects. Shows strong interest in art and problem-solving.',
+      strengths:['Creative Thinking','Logical Problem-Solving','Communication','Curiosity'],
+      scratch:['Maze Solver','AI Story Generator','Art & Animation','Science Experiment Simulator'],
+      subjects:['Math','Science','Art','Computer Science'],
+      careers:['Game Designer','Data Analyst','Science Educator','Animator'],
+      resources:[
+        {title:'Logic Puzzles for Kids',type:'Article'},
+        {title:'Intro to Scratch',type:'Video'},
+        {title:'Fun Science Experiments',type:'Video'},
+        {title:'Digital Art Basics',type:'Article'},
+        {title:'AI & Machine Learning Basics',type:'Video'}
+      ]
+    };
+
+    function renderAnalysis(profile){
+      document.getElementById('studentName').textContent=profile.name;
+      document.getElementById('profileSummaryText').textContent=profile.summary;
+      const sGrid=document.getElementById('strengthsGrid');
+      sGrid.innerHTML='';profile.strengths.forEach(s=>{
+        const div=document.createElement('div');div.className='strength';div.textContent=s;sGrid.appendChild(div);
+      });
+      const cGrid=document.getElementById('scratchGrid');
+      cGrid.innerHTML='';profile.scratch.forEach(p=>{
+        const div=document.createElement('div');div.className='mini';div.textContent=p;cGrid.appendChild(div);
+      });
+      const subDiv=document.getElementById('subjectPaths');subDiv.innerHTML='';
+      profile.subjects.forEach(sub=>{
+        const d=document.createElement('div');d.className='tag-pill active';d.textContent=sub;subDiv.appendChild(d);
+      });
+      const careerDiv=document.getElementById('careerList');careerDiv.innerHTML='';
+      profile.careers.forEach(c=>{const d=document.createElement('div');d.className='mini';d.textContent=c;careerDiv.appendChild(d)});
+    }
+
+    function renderResources(profile){
+      const rGrid=document.getElementById('resourceGrid');rGrid.innerHTML='';
+      profile.resources.forEach(r=>{
+        const div=document.createElement('div');div.className='resource';
+        div.innerHTML=`<strong>${r.title}</strong><br><small style="color:var(--muted)">${r.type}</small>`;
+        rGrid.appendChild(div);
+      });
+    }
+
+    function renderExport(profile){
+      document.getElementById('sharePreview').textContent=
+        `Name: ${profile.name}\nAge: ${profile.age}\nLearning Vibe: ${profile.vibe}\n\nStrengths:\n- ${profile.strengths.join('\n- ')}\n\nProjects:\n- ${profile.scratch.join('\n- ')}\n\nSubjects:\n- ${profile.subjects.join('\n- ')}\n\nSuggested Careers:\n- ${profile.careers.join('\n- ')}\n\nSummary:\n${profile.summary}`;
+    }
+
+    function fakeExportPDF(){alert('PDF export placeholder. Backend integration needed.');}
+    function copyShareLink(){navigator.clipboard.writeText('https://sample-link.com/profile').then(()=>alert('Link copied!'))}
+
+    // Initial load
+    renderQuestion();
+    updateProgress();
+
+  </script>
+</body>
+</html>

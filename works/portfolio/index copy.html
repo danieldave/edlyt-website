@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Master Dan — AI-Driven Frontend Engineer</title>
+  <meta name="description" content="Master Dan — AI-driven frontend engineer & kids coding educator. Interactive AI products, curriculum, and creative coding projects." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- SimpleIcons CDN for tech logos (used in <img> tags) -->
+  <!-- No frameworks. -->
+</head>
+<body class="theme-dark">
+  <!-- SITE NAV -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">
+        <!-- Neon-mark + name -->
+        <span class="brand-logo" aria-hidden="true"></span>
+        <span class="brand-text">Master Dan</span>
+      </a>
+
+      <nav id="nav" class="nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">
+          <!-- simple sun/moon inline icon -->
+          <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3v2M12 19v2M3 12h2M19 12h2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="Open menu" title="Menu">
+          <!-- hamburger -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav overlay -->
+    <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+      <nav class="mobile-nav-inner">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#portfolio" class="mobile-link">Portfolio</a>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="home" class="hero section container">
+      <div class="hero-left">
+        <h1 class="headline reveal-up">AI-Driven Frontend Engineer &amp; Creative Coding Educator</h1>
+        <p class="subtext reveal-up delay-1">
+          I build smart, interactive, and educational AI experiences for schools, creators, and small businesses.
+        </p>
+
+        <div class="hero-ctas reveal-up delay-2">
+          <a href="#portfolio" class="btn primary">View My AI Portfolio</a>
+          <a href="#contact" class="btn ghost">Work with me</a>
+        </div>
+
+        <ul class="hero-badges reveal-up delay-3" aria-hidden="true">
+          <li>HTML</li><li>CSS</li><li>JavaScript</li><li>AI Tools</li><li>Education</li>
+        </ul>
+      </div>
+
+      <div class="hero-right reveal-fade delay-2" aria-hidden="true">
+        <!-- free vector-style background from unsplash (tech/abstract). using source.unsplash for dynamic image. -->
+        <div class="hero-art">
+          <img src="https://source.unsplash.com/800x800/?technology,abstract,ai" alt="Futuristic abstract tech art" />
+          <div class="art-overlay">
+            <!-- small undraw-style illustration placeholder (icons8 avatar used below in About) -->
+            <img class="art-illustration" src="https://img.icons8.com/office/240/00e5ff/artificial-intelligence.png" alt="AI illustration" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about container">
+      <div class="about-card reveal-up">
+        <div class="about-left">
+          <img class="avatar" src="https://img.icons8.com/fluency/120/00e5ff/user-male-circle.png" alt="Master Dan avatar (illustration)" />
+          <div class="bio-meta">
+            <h3>Master Dan</h3>
+            <p class="muted">AI Frontend Engineer • Kids Coding Educator • AI Tools Creator</p>
+          </div>
+        </div>
+
+        <div class="about-right">
+          <p>
+            I'm an AI-driven frontend engineer who builds educational and interactive experiences for schools, creators,
+            and small businesses. I design lightweight, accessible interfaces and craft hands-on learning tools that make
+            coding and AI approachable for kids and educators.
+          </p>
+
+          <div class="skills">
+            <!-- Skill icons: using SimpleIcons CDN for logos -->
+            <div class="skill">
+              <img src="https://cdn.simpleicons.org/html5/ffffff" alt="HTML5" title="HTML5" />
+              <span>HTML</span>
+            </div>
+            <div class="skill">
+              <img src="https://cdn.simpleicons.org/css3/ffffff" alt="CSS3" title="CSS3" />
+              <span>CSS</span>
+            </div>
+            <div class="skill">
+              <img src="https://cdn.simpleicons.org/javascript/ffffff" alt="JavaScript" title="JavaScript" />
+              <span>JavaScript</span>
+            </div>
+            <div class="skill">
+              <img src="https://cdn.simpleicons.org/rest/ffffff" alt="API" title="APIs" />
+              <span>APIs</span>
+            </div>
+            <div class="skill">
+              <img src="https://cdn.simpleicons.org/git/ffffff" alt="Git" title="Git" />
+              <span>Git</span>
+            </div>
+            <div class="skill">
+              <img src="https://cdn.simpleicons.org/scratch/ffffff" alt="Scratch" title="Scratch" />
+              <span>Scratch</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section container">
+      <h2 class="section-title reveal-up">Portfolio</h2>
+      <p class="section-lead reveal-up delay-1">Five showcased AI components & projects — click to view (placeholders).</p>
+
+      <div class="portfolio-grid">
+        <!-- Card template repeated 5 times -->
+        <article class="portfolio-card reveal-up">
+          <div class="card-media">
+            <img src="https://source.unsplash.com/600x400/?lesson,plan,ai" alt="Lesson Plan Generator art" />
+          </div>
+          <div class="card-body">
+            <h3>Lesson Plan Generator</h3>
+            <p>AI-powered lesson plan generator tailored for classroom objectives and age groups. Quickly produce step-by-step activities and assessments.</p>
+            <div class="card-actions">
+              <a href="#" class="portfolio-btn">View Project</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal-up delay-1">
+          <div class="card-media">
+            <img src="https://source.unsplash.com/600x400/?storytelling,children,ai" alt="Scratch Story Creator art" />
+          </div>
+          <div class="card-body">
+            <h3>Scratch Story Creator</h3>
+            <p>Tool that transforms narrative prompts into Scratch-ready story projects, complete with sprites and dialogue sequences for kids.</p>
+            <div class="card-actions">
+              <a href="#" class="portfolio-btn">View Project</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal-up delay-2">
+          <div class="card-media">
+            <img src="https://source.unsplash.com/600x400/?component,ui,ai" alt="AI → HTML/CSS Component Generator" />
+          </div>
+          <div class="card-body">
+            <h3>AI → HTML/CSS Component Generator</h3>
+            <p>Generate responsive, production-ready HTML/CSS components from plain text prompts — perfect for rapid prototyping.</p>
+            <div class="card-actions">
+              <a href="#" class="portfolio-btn">View Project</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal-up delay-3">
+          <div class="card-media">
+            <img src="https://source.unsplash.com/600x400/?whatsapp,business,chatbot" alt="WhatsApp Business Assistant" />
+          </div>
+          <div class="card-body">
+            <h3>WhatsApp Business Assistant</h3>
+            <p>A conversational assistant built to handle leads, FAQs, and simple automations for small businesses on WhatsApp.</p>
+            <div class="card-actions">
+              <a href="#" class="portfolio-btn">View Project</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal-up delay-4">
+          <div class="card-media">
+            <img src="https://source.unsplash.com/600x400/?kids,learning,ai" alt="Kids Learn AI: Mini Program" />
+          </div>
+          <div class="card-body">
+            <h3>Kids Learn AI: Mini Program</h3>
+            <p>A short, playful curriculum that introduces children to core AI ideas through games, stories, and guided projects.</p>
+            <div class="card-actions">
+              <a href="#" class="portfolio-btn">View Project</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section container">
+      <h2 class="section-title reveal-up">Services</h2>
+      <p class="section-lead reveal-up delay-1">Tailored AI and frontend services for education, creators, and small business automation.</p>
+
+      <div class="services-grid">
+        <div class="service-card reveal-up">
+          <!-- inline heroicon: cog -->
+          <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M11.05 2.05l1.9 3.29a7 7 0 012.45 0l1.9-3.29 2.12 1.22-1 3.46a7 7 0 01.94 1.95l3.63.99-.55 2.3-3.76.27a7 7 0 01-1.03 1.88l1.54 2.83-2.12 1.22-1.9-3.29a7 7 0 01-2.45 0l-1.9 3.29-2.12-1.22 1-3.46a7 7 0 01-.94-1.95L2.7 13.6l.55-2.3 3.76-.27a7 7 0 011.03-1.88L6 6.32 8.12 5.1l1.9 3.29a7 7 0 012.05 0z" stroke="currentColor" stroke-width="0.5" fill="none"/>
+          </svg>
+          <h4>AI Website Integrations</h4>
+          <p>Embed chatbots, lesson generators, and content-personalization layers into your site.</p>
+        </div>
+
+        <div class="service-card reveal-up delay-1">
+          <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h4>AI for Education</h4>
+          <p>Design curriculum, workshops, and interactive tools for kids and teens to learn coding & AI safely.</p>
+        </div>
+
+        <div class="service-card reveal-up delay-2">
+          <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h4>AI Automation for SMBs</h4>
+          <p>Automate messaging, lead capture, and simple business processes to save time and scale.</p>
+        </div>
+
+        <div class="service-card reveal-up delay-3">
+          <svg class="service-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3L19 21H5L12 3z" stroke="currentColor" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h4>AI Frontend Development</h4>
+          <p>Pixel-perfect, accessible frontends that integrate AI features while keeping UX simple for all ages.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact container">
+      <h2 class="section-title reveal-up">Contact</h2>
+      <p class="section-lead reveal-up delay-1">Let's work together — education, prototype, or product work.</p>
+
+      <div class="contact-grid">
+        <form id="contact-form" class="contact-form reveal-up delay-2" novalidate>
+          <label>
+            <span>Your name</span>
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="you@example.com" required />
+          </label>
+
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Send message</button>
+            <button type="button" id="email-btn" class="btn ghost">Email me</button>
+          </div>
+
+          <p id="form-msg" class="muted small" aria-live="polite"></p>
+        </form>
+
+        <aside class="contact-side reveal-up delay-3">
+          <div class="contact-card">
+            <h3>Get in touch</h3>
+            <p>Email: <a href="mailto:master.dan@example.com">master.dan@example.com</a></p>
+            <p>Location: Lagos, Nigeria (mock)</p>
+
+            <div class="socials">
+              <a class="social" href="#" aria-label="Twitter">
+                <img src="https://cdn.simpleicons.org/twitter/00e5ff" alt="Twitter" />
+              </a>
+              <a class="social" href="#" aria-label="GitHub">
+                <img src="https://cdn.simpleicons.org/github/00e5ff" alt="GitHub" />
+              </a>
+              <a class="social" href="#" aria-label="LinkedIn">
+                <img src="https://cdn.simpleicons.org/linkedin/00e5ff" alt="LinkedIn" />
+              </a>
+            </div>
+          </div>
+
+          <div class="footer">
+            <p>© <span id="year"></span> Master Dan — Built with ❤️ and AI · <a href="#privacy">Privacy</a></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightweight accessibility skip link -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <script src="script.js"></script>
+</body>
+</html>

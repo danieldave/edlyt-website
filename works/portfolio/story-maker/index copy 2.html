@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Scratch Story Maker 🧒✨</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+<!-- Install banner -->
+<div id="installBanner" class="install-banner" aria-live="polite">
+  <div class="install-left">
+    <button id="closeInstall" class="icon-btn" aria-label="Close install banner">✕</button>
+    <div class="install-text">
+      <strong>Install AI Scratch Story Maker</strong>
+      <p>Add this app to your device for full-screen fun!</p>
+    </div>
+  </div>
+  <button id="installAppBtn" class="install-action">Install</button>
+</div>
+
+<!-- small persistent install icon (corner) -->
+<button id="openInstallBtn" class="open-install" title="Install app">⬇️</button>
+
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <h1>AI Scratch Story Maker 🧒✨</h1>
+    <p>Create magical Scratch stories, games, and characters — powered by real AI.</p>
+    <button id="startBtn" class="main-btn">Start Creating 🚀</button>
+  </div>
+</header>
+
+<!-- MODE SELECTOR -->
+<section class="mode-selector">
+  <label><input type="radio" name="aiMode" value="story" checked> Story Maker</label>
+  <label><input type="radio" name="aiMode" value="game"> Game Maker</label>
+  <label><input type="radio" name="aiMode" value="character"> Character Builder</label>
+  <label><input type="radio" name="aiMode" value="scene"> Scene Builder</label>
+  <button id="surpriseBtn">🎲 Surprise Me!</button>
+</section>
+<!-- a simple mode description area -->
+<div id="modeDescription" class="mode-description">
+  <strong>Mode help</strong>
+  <p id="modeDescriptionText">Pick a mode (Story, Game, Character, Scene) — a quick tip will appear here.</p>
+</div>
+
+<!-- INPUTS -->
+<section class="input-area">
+  <input id="genre" placeholder="Genre">
+  <input id="mainCharacter" placeholder="Main Character">
+  <input id="setting" placeholder="Setting / World">
+  <select id="difficulty">
+    <option>Easy</option>
+    <option>Fun</option>
+    <option>Challenge</option>
+  </select>
+</section>
+
+<!-- USER PROMPT -->
+<section class="user-prompt">
+  <textarea id="userInput" placeholder="Describe your idea or leave blank for AI magic…"></textarea>
+  <button id="generateBtn">Generate Project ✨</button>
+</section>
+
+<!-- OUTPUT -->
+<section class="output">
+  <div id="output" class="output-body">
+    Your AI project will appear here!
+  </div>
+  <button id="readStoryBtn">🔊 Read Story</button>
+  <button id="saveProject">💾 Save Project</button>
+  <button id="openShelf">📚 Open Shelf</button>
+</section>
+
+<!-- PROJECT SHELF -->
+<section id="projectShelf" class="project-shelf"></section>
+
+<!-- FOOTER -->
+<footer>
+  <p>AI Scratch Story Maker — Fun, safe, educational.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

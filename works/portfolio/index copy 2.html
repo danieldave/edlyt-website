@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Master Dan — AI-Driven Frontend Engineer & AI Error Detection Portfolio</title>
+  <meta name="description" content="Master Dan — AI-driven frontend engineer & kids coding educator. Interactive AI products, curriculum, and creative coding projects. Includes a live AI Error Detection portfolio." />
+
+  <!-- Critical (inlined) styles for speed -->
+  <style>
+    :root{--accent:#00e5ff;--bg:#071021;--panel:#0e1420;--text:#e6f7ff;--muted:#9aa6b2;--radius:12px;--maxw:1100px}
+    *{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,var(--bg),#04060a);color:var(--text)}
+    .container{max-width:var(--maxw);margin:0 auto;padding:20px}
+    header{position:sticky;top:0;background:rgba(5,10,15,0.4);backdrop-filter:blur(6px);padding:14px 0;z-index:40}
+    .header-inner{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+    .brand-logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#73f0ff)}
+    nav{display:flex;gap:10px}
+    a.nav-link{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px}
+    a.nav-link:hover{color:var(--text);background:rgba(255,255,255,0.02)}
+
+    .hero{display:flex;gap:20px;align-items:center;padding:48px 0}
+    .hero-left{flex:1}
+    .headline{font-size:28px;margin:0 0 10px}
+    .subtext{color:var(--muted);max-width:60ch}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;margin-right:8px}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#73f0ff);color:#021120}
+    .hero-art{width:360px;border-radius:16px;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,0.6)}
+    .hero-art img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* ABOUT */
+    .about{background:var(--panel);padding:18px;border-radius:14px;display:flex;gap:16px;align-items:center}
+    .avatar{width:88px;height:88px;border-radius:12px;object-fit:cover}
+    .skills{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .skill{background:rgba(255,255,255,0.02);padding:6px 8px;border-radius:8px;color:var(--muted)}
+
+    /* PORTFOLIO */
+    .section-title{font-size:20px;margin:18px 0 6px}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+    .card-media img{width:100%;height:160px;object-fit:cover;display:block}
+    .card-body{padding:12px}
+    .card-body h3{margin:0 0 8px;font-size:16px}
+    .card-body p{color:var(--muted);font-size:14px;margin:0 0 10px}
+    .card-actions{display:flex;gap:8px;justify-content:flex-end}
+    .link-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 8px;border-radius:8px;color:var(--text);text-decoration:none}
+
+    /* AI Error Detection specialized styles */
+    .badge{display:inline-block;background:rgba(0,0,0,0.3);padding:6px 8px;border-radius:999px;font-weight:600;color:var(--accent);font-size:12px}
+
+    /* modal / project page overlay (single-file approach) */
+    .overlay{position:fixed;inset:0;background:rgba(2,6,12,0.7);display:none;align-items:center;justify-content:center;padding:30px;z-index:80}
+    .overlay.open{display:flex}
+    .project-panel{width:980px;max-width:98%;background:var(--panel);border-radius:12px;padding:18px;box-shadow:0 20px 60px rgba(0,0,0,0.7);overflow:auto;max-height:86vh}
+    .project-grid{display:grid;grid-template-columns:1fr 380px;gap:12px}
+    .project-media img{width:100%;height:320px;object-fit:cover;border-radius:8px}
+    .project-meta h2{margin:0 0 8px}
+    .close-x{background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer}
+
+    footer{padding:28px 0;color:var(--muted);text-align:center}
+
+    @media(max-width:900px){.hero{flex-direction:column}.project-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="#home"><div class="brand-logo" aria-hidden></div><div style="font-weight:700">Master Dan</div></a>
+      <nav>
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#portfolio">Portfolio</a>
+        <a class="nav-link" href="#ai-errors">AI Errors</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="home">
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="headline">AI-Driven Frontend Engineer &amp; Creative Coding Educator</h1>
+        <p class="subtext">I build smart, interactive, and educational AI experiences for schools, creators, and small businesses. I create lightweight, accessible interfaces and train AI systems to be more reliable.</p>
+        <div style="margin-top:14px">
+          <a href="#portfolio" class="btn primary">View My Work</a>
+          <a href="#contact" class="btn">Work with me</a>
+        </div>
+        <div class="skills" style="margin-top:12px">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">AI Tools</span>
+          <span class="skill">Education</span>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden>
+        <!-- local image from earlier generation (available in this workspace) -->
+        <img src="/mnt/data/A_vibrant_3D-rendered_digital_illustration_showcas.png" alt="Futuristic classroom art" />
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:18px">
+      <h2 class="section-title">About Master Dan</h2>
+      <div class="about">
+        <img class="avatar" src="https://img.icons8.com/fluency/120/00e5ff/user-male-circle.png" alt="Avatar" />
+        <div>
+          <h3 style="margin:0">Master Dan</h3>
+          <p class="muted" style="margin:6px 0 0">AI Frontend Engineer • Kids Coding Educator • AI Tools Creator</p>
+          <p style="margin-top:10px;color:var(--muted)">I design and implement educational AI products and training datasets that help models behave better in real classroom scenarios. I specialize in visual QA, prompt engineering, and front-end integration for AI features.</p>
+          <div style="margin-top:8px">
+            <strong>Location:</strong> Lagos, Nigeria<br />
+            <strong>Email:</strong> master.dan@example.com
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" style="margin-top:26px">
+      <h2 class="section-title">Portfolio — Selected Projects</h2>
+      <p class="section-lead" style="color:var(--muted)">Interactive AI components, education tools, and frontend systems.</p>
+
+      <div class="portfolio-grid">
+        <article class="card">
+          <div class="card-media"><img src="https://source.unsplash.com/600x400/?lesson,plan,ai" alt="Lesson Plan" /></div>
+          <div class="card-body">
+            <h3>Lesson Plan Generator</h3>
+            <p>AI-powered lesson plans tailored to objectives and age groups. Fast, editable templates for teachers.</p>
+            <div class="card-actions"><a class="link-btn" href="#">Live</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media"><img src="https://source.unsplash.com/600x400/?storytelling,children,ai" alt="Scratch Story"/></div>
+          <div class="card-body">
+            <h3>Scratch Story Creator</h3>
+            <p>Transforms narrative prompts into Scratch-ready story projects for kids.</p>
+            <div class="card-actions"><a class="link-btn" href="#">Live</a></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media"><img src="https://source.unsplash.com/600x400/?component,ui,ai" alt="Component Gen"/></div>
+          <div class="card-body">
+            <h3>AI → HTML/CSS Component Generator</h3>
+            <p>Generates responsive components from text prompts — production-ready snippets.</p>
+            <div class="card-actions"><a class="link-btn" href="#">Live</a></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- AI Error Detection Portfolio integrated -->
+    <section id="ai-errors" style="margin-top:26px">
+      <h2 class="section-title">AI Error Detection Portfolio</h2>
+      <p class="section-lead" style="color:var(--muted)">Real examples of AI-generated image flaws and my expert analyses. Click any card for a detailed view.</p>
+
+      <div class="portfolio-grid" id="ai-grid">
+        <!-- Card A: uses a local generated image (uploaded earlier in session) -->
+        <article class="card" data-id="case-1">
+          <div class="card-media"><img src="/mnt/data/A_3D-rendered_digital_illustration_depicts_a_vibra.png" alt="Classroom image with orientation errors"/></div>
+          <div class="card-body">
+            <h3>Case 1 — Orientation & Anatomy Errors <span class="badge">Visual</span></h3>
+            <p>Student head rotation beyond natural range; laptop facing wrong direction; inconsistency in reflections and perspective.</p>
+            <div class="card-actions"><button class="link-btn" data-open="case-1">Inspect</button></div>
+          </div>
+        </article>
+
+        <!-- Card B: second local image -->
+        <article class="card" data-id="case-2">
+          <div class="card-media"><img src="/mnt/data/A_vibrant_3D-rendered_digital_illustration_showcas.png" alt="Vibrant classroom"/></div>
+          <div class="card-body">
+            <h3>Case 2 — Perspective & Lighting <span class="badge">Scene</span></h3>
+            <p>Incorrect laptop screen orientation; unnatural light bloom; slight mesh blending on arms.</p>
+            <div class="card-actions"><button class="link-btn" data-open="case-2">Inspect</button></div>
+          </div>
+        </article>
+
+        <!-- Placeholder cards (you will replace with uploads later) -->
+        <article class="card" data-id="case-3">
+          <div class="card-media"><img src="https://via.placeholder.com/600x400?text=Placeholder+3" alt="Placeholder 3"/></div>
+          <div class="card-body">
+            <h3>Case 3 — Floating Object <span class="badge">Physics</span></h3>
+            <p>Object appears to float slightly above the ground; shadow disconnected from object base.</p>
+            <div class="card-actions"><button class="link-btn" data-open="case-3">Inspect</button></div>
+          </div>
+        </article>
+
+        <article class="card" data-id="case-4">
+          <div class="card-media"><img src="https://via.placeholder.com/600x400?text=Placeholder+4" alt="Placeholder 4"/></div>
+          <div class="card-body">
+            <h3>Case 4 — Extra Limb <span class="badge">Anatomy</span></h3>
+            <p>Subtle limb duplication behind the subject; sleeve shadow mismatch indicates artifact.</p>
+            <div class="card-actions"><button class="link-btn" data-open="case-4">Inspect</button></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year">2025</span> Master Dan — AI Trainer & Frontend Engineer · Lagos, Nigeria</div>
+  </footer>
+
+  <!-- Overlay / Project detail panel (single-file project pages) -->
+  <div id="overlay" class="overlay" role="dialog" aria-hidden="true">
+    <div class="project-panel" role="document">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <strong id="project-title">Case details</strong>
+        <button class="close-x" id="close-overlay" aria-label="Close">✕</button>
+      </div>
+
+      <div class="project-grid">
+        <div class="project-media"><img id="project-img" src="" alt="Project media" /></div>
+        <div class="project-meta">
+          <h2 id="project-heading">Case heading</h2>
+          <p id="project-desc" style="color:var(--muted)"></p>
+
+          <h4 style="margin-top:12px">Detected Errors</h4>
+          <ul id="project-errors" style="color:var(--muted)"></ul>
+
+          <h4 style="margin-top:12px">Severity & Notes</h4>
+          <p id="project-notes" style="color:var(--muted)"></p>
+
+          <div style="margin-top:14px">
+            <a id="download-img" class="link-btn" href="#" target="_blank">Open image</a>
+            <a id="report-btn" class="link-btn" href="#">Download report</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // small wiring for portfolio + overlay
+    const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    const cases = {
+      'case-1':{
+        title:'Case 1 — Orientation & Anatomy Errors',
+        img:'/mnt/data/A_3D-rendered_digital_illustration_depicts_a_vibra.png',
+        desc:'A classroom render exhibiting several visual anomalies detected during QA.',
+        errors:[
+          'Student head rotated beyond natural range (anatomical error).',
+          'Laptop screen oriented away from user (orientation error).',
+          'Reflections and bloom inconsistent with light sources (lighting error).',
+          'Minor mesh blending on arm and desk (geometry artifact).'
+        ],
+        notes:'Severity: Medium. These errors commonly arise from insufficient training data for pose priors and incorrect prompt constraints. Recommend targeted dataset examples for similar poses and stronger orientation anchors in prompts.'
+      },
+
+      'case-2':{
+        title:'Case 2 — Perspective & Lighting',
+        img:'/mnt/data/A_vibrant_3D-rendered_digital_illustration_showcas.png',
+        desc:'Vibrant classroom render with perspective mismatch and bloom issues.',
+        errors:[
+          'Laptop face angle inconsistent with user position.',
+          'Overexposed bloom around screens (HDR-like artifact).',
+          'Slight arm/desk blending at mesh seams.'
+        ],
+        notes:'Severity: Medium-Low. Adjust model prompt to prioritize camera angle and reduce bloom/post-process exaggeration.'
+      },
+
+      'case-3':{
+        title:'Case 3 — Floating Object',
+        img:'https://via.placeholder.com/1200x800?text=Floating+Object',
+        desc:'Object floating above surface; mismatch between shadow and object base.',
+        errors:[ 'Object-not-grounded', 'Shadow misalignment', 'Perspective mismatch'],
+        notes:'Severity: Low-Medium. Often due to incorrect depth cues or compositing stage artifacts.'
+      },
+
+      'case-4':{
+        title:'Case 4 — Extra Limb Artifact',
+        img:'https://via.placeholder.com/1200x800?text=Extra+Limb',
+        desc:'Subtle extra limb appearing behind subject; common hallucination in generative models.',
+        errors:[ 'Limb duplication', 'Shadow mismatch', 'Clothing folding inconsistency' ],
+        notes:'Severity: High. Requires dataset cleansing and explicit prompt constraints about limb counts and poses.'
+      }
+    };
+
+    const overlay = document.getElementById('overlay');
+    const projectTitle = document.getElementById('project-title');
+    const projectImg = document.getElementById('project-img');
+    const projectHeading = document.getElementById('project-heading');
+    const projectDesc = document.getElementById('project-desc');
+    const projectErrors = document.getElementById('project-errors');
+    const projectNotes = document.getElementById('project-notes');
+    const downloadImg = document.getElementById('download-img');
+
+    document.querySelectorAll('[data-open]').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        const id = btn.getAttribute('data-open');
+        const data = cases[id];
+        if (!data) return;
+        projectTitle.textContent = data.title;
+        projectHeading.textContent = data.title;
+        projectDesc.textContent = data.desc;
+        projectImg.src = data.img;
+        downloadImg.href = data.img;
+        projectErrors.innerHTML = '';
+        data.errors.forEach(err=>{ const li=document.createElement('li'); li.textContent = err; projectErrors.appendChild(li); });
+        projectNotes.textContent = data.notes;
+        overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+      })
+    });
+
+    document.getElementById('close-overlay').addEventListener('click', ()=>{ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); });
+    overlay.addEventListener('click', (e)=>{ if (e.target===overlay) { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); } });
+
+    // keyboard escape to close
+    document.addEventListener('keydown', (e)=>{ if (e.key==='Escape' && overlay.classList.contains('open')) { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); }});
+
+    // minimal performance: lazy load images outside viewport
+    document.querySelectorAll('img').forEach(img=>{ if (!img.hasAttribute('loading')) img.setAttribute('loading','lazy'); });
+  </script>
+</body>
+</html>

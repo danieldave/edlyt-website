@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Master Dan — AI Error Detection (Revamped Palette)</title>
+<meta name="description" content="Master Dan — AI/frontend educator. Fast, elegant portfolio with AI Error Detection cases." />
+
+<!-- preload local hero to speed paint -->
+<link rel="preload" href="/mnt/data/A_vibrant_3D-rendered_digital_illustration_showcas.png" as="image">
+
+<!-- Inline CSS: new classic palette + refined UI -->
+<style>
+  :root{
+    /* Classic/premium palette */
+    --midnight: #0B2545;    /* deep background */
+    --ivory:    #F8F6F0;    /* surface / light */
+    --gold:     #D4AF37;    /* primary accent */
+    --slate:    #5B6B78;    /* muted text */
+    --teal:     #23C4B7;    /* secondary accent */
+    --glass:    rgba(11,37,69,0.06);
+    --radius:   14px;
+    --maxw:     1180px;
+    --ease:     cubic-bezier(.2,.9,.2,1);
+    --shadow-1: 0 8px 30px rgba(11,37,69,0.35);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  /* Light theme variables override (applied when .theme-light on html) */
+  html.theme-light{
+    --bg: var(--ivory);
+    --panel: #ffffff;
+    --text: #072033;
+    --muted-color: var(--slate);
+    --accent: var(--gold);
+    --cta-color: var(--midnight);
+  }
+
+  /* Dark theme variables (default) */
+  html{
+    --bg: linear-gradient(180deg,#071228,#041022);
+    --panel: rgba(11,37,69,0.12);
+    --text: #F2F6F9;
+    --muted-color: #9FB0BD;
+    --accent: var(--teal);
+    --cta-color: #021623;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+  .page{max-width:var(--maxw);margin:18px auto;padding:28px}
+
+  /* Header */
+  header{position:sticky;top:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);backdrop-filter: blur(6px);padding:10px;border-radius:12px;box-shadow:var(--shadow-1);z-index:60}
+  .header-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+  .brand-mark{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#ffd86b);box-shadow:0 8px 30px rgba(11,37,69,0.08)}
+  .brand-title{font-weight:700;font-size:1.05rem;letter-spacing:0.2px}
+  nav{display:flex;gap:8px}
+  nav a{color:var(--muted-color);text-decoration:none;padding:8px 10px;border-radius:10px;transition:all 220ms var(--ease);font-weight:600}
+  nav a:hover{background:var(--glass);color:var(--text);transform:translateY(-2px)}
+
+  /* Theme toggle */
+  .controls{display:flex;gap:8px;align-items:center}
+  .icon-btn{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:10px;color:var(--muted-color);cursor:pointer}
+
+  /* Hero */
+  .hero{display:grid;grid-template-columns:1fr 440px;gap:28px;align-items:center;padding:20px 0}
+  .headline{font-size:34px;line-height:1.03;font-weight:800;margin-bottom:8px;color:var(--text)}
+  .eyeline{color:var(--gold);font-weight:700}
+  .lead{color:var(--muted-color);max-width:62ch;margin-bottom:18px}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:700;text-decoration:none}
+  .btn-main{background:linear-gradient(90deg,var(--accent),#73f0ff);color:var(--cta-color);box-shadow:0 14px 40px rgba(2,6,12,0.25)}
+  .btn-sub{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+  .skills{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .skill-pill{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:999px;color:var(--muted-color);font-weight:600;font-size:13px}
+
+  .hero-art{border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(2,6,12,0.6);display:flex;align-items:center;justify-content:center}
+  .hero-art img{display:block;width:100%;height:100%;object-fit:cover}
+
+  /* sections */
+  section{margin-top:28px}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:12px}
+  .section-title{font-size:18px;font-weight:800}
+  .section-sub{color:var(--muted-color);margin-top:6px}
+
+  /* About */
+  .about{display:flex;gap:18px;align-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:18px;border-radius:12px;box-shadow:var(--shadow-1)}
+  .avatar{width:96px;height:96px;border-radius:12px;object-fit:cover;border:2px solid rgba(255,255,255,0.04)}
+  .about-meta h3{margin-bottom:4px}
+  .about-meta p{color:var(--muted-color);margin:0}
+
+  /* Grid & Cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(2,6,12,0.35);overflow:hidden;display:flex;flex-direction:column}
+  .thumb{height:180px;background:#0e0e0e}
+  .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .card-body{padding:14px;display:flex;flex-direction:column;gap:10px}
+  .meta-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .card p{color:var(--muted-color);margin:0}
+
+  /* overlay / modal */
+  .overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(2,6,12,0.72), rgba(2,6,12,0.84));backdrop-filter:blur(6px);padding:24px;z-index:120}
+  .overlay.open{display:flex}
+  .modal{width:100%;max-width:1100px;background:var(--panel);border-radius:12px;padding:18px;box-shadow:0 30px 80px rgba(2,6,12,0.7);max-height:86vh;overflow:auto;display:grid;grid-template-columns:1fr 380px;gap:18px}
+  .modal img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+  .modal h2{margin:0 0 8px}
+  .modal .list{color:var(--muted-color);margin:8px 0 0}
+  .modal .close{background:transparent;border:0;color:var(--muted-color);font-size:18px;cursor:pointer}
+
+  /* WhatsApp CTA */
+  .whatsapp{position:fixed;right:20px;bottom:20px;background:linear-gradient(135deg,#25D366,#128C7E);color:white;border-radius:999px;padding:12px 16px;box-shadow:0 12px 40px rgba(2,6,12,0.45);display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;z-index:130}
+
+  footer{margin-top:36px;padding:22px 0;text-align:center;color:var(--muted-color)}
+
+  /* Responsive */
+  @media (max-width:980px){ .hero{grid-template-columns:1fr 320px} .modal{grid-template-columns:1fr} }
+  @media (max-width:720px){ header{padding:12px} .hero{grid-template-columns:1fr} nav{display:none} .page{padding:18px} }
+
+  /* reveal animation */
+  .reveal{opacity:0;transform:translateY(8px);transition:opacity 520ms var(--ease), transform 520ms var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+</style>
+
+<!-- GSAP for micro-interactions (optional) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+</head>
+<body>
+  <div class="page" id="page">
+
+    <!-- Header -->
+    <header>
+      <div class="header-row">
+        <a class="brand" href="#home">
+          <img src="./images/logo.png" style="width: 100px; height: 100px;" alt="">
+          <span class="brand-title">Edlyt Solutions</span>
+        </a>
+
+        <div class="controls">
+          <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#ai-errors">AI Errors</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">🌓</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <main>
+      <section class="hero" id="home">
+        <div>
+          <h1 class="headline reveal">AI-Driven Frontend Engineer — <span class="eyeline">Creative Coding Educator</span></h1>
+          <p class="lead reveal">I build elegant AI experiences for schools, creators and small businesses — fast, accessible, and human-aware. I also audit AI outputs and train models to be less wrong.</p>
+
+          <div class="ctas reveal">
+            <a class="btn btn-main" href="#portfolio">View Work</a>
+            <a class="btn btn-sub" href="#contact">Work with me</a>
+          </div>
+
+          <div class="skills reveal" aria-hidden>
+            <span class="skill-pill">HTML</span>
+            <span class="skill-pill">CSS</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">AI Tools</span>
+            <span class="skill-pill">Education</span>
+          </div>
+        </div>
+
+        <div class="hero-art reveal" aria-hidden>
+          <!-- fast local hero image -->
+          <img src="./images/ai.jpg" alt="Futuristic classroom art" loading="eager">
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about">
+        <div class="section-head">
+          <h3 class="section-title">About</h3>
+        </div>
+        <p class="section-sub">Background, practice and mission.</p>
+        <br>
+
+        <div class="about reveal">
+          <img class="avatar" src="./images/profile-img.png" alt="Master Dan avatar">
+          <div class="about-meta">
+            <h3>Master Dan</h3>
+            <p class="muted">AI Frontend Engineer • Kids Coding Educator • AI Tools Creator</p>
+            <p style="margin-top:8px;color:var(--muted-color)">I design and implement educational AI products and training datasets that help models behave better in real classroom scenarios. I specialize in visual QA, prompt engineering, and front-end integration for AI features.</p>
+            <p style="margin-top:10px;color:var(--muted-color)"><strong>Location:</strong> Lagos, Nigeria · <strong>Email:</strong> edlysolutions@gmail.com</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio -->
+      <section id="portfolio">
+        <div class="section-head">
+          <h3 class="section-title">Portfolio — Selected Projects</h3>
+        </div>
+        <p class="section-sub">Interactive AI components, education tools, and front-end systems.</p>
+        <br>
+        <div class="grid reveal" id="portfolio-grid">
+          <article class="card">
+            <div class="thumb"><img src="./images/lesson.jpg" alt="Lesson Plan" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Lesson Plan Generator</strong><span class="badge">Live</span></div>
+              <p>AI-powered lesson plans tailored to objectives and age groups — editable templates for teachers.</p>
+              <div class="card-actions"><a class="btn btn-sub" href="https://danieldave.github.io/Teach-Wave-AI/" target="_blank">Open</a></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb"><img src="./images/scratch-maker.jpg" alt="Scratch Story" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Scratch Story Creator</strong><span class="badge">Edu</span></div>
+              <p>Transforms narrative prompts into Scratch-ready story projects for kids.</p>
+              <div class="card-actions"><a class="btn btn-sub" href="https://ai-scratch-maker.vercel.app/">Open</a></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb"><img src="./images/html-component.jpg" alt="Component Gen" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>AI → HTML/CSS Component Generator</strong><span class="badge">Tool</span></div>
+              <p>Generates responsive components from text prompts — production-ready snippets.</p>
+              <div class="card-actions"><a class="btn btn-sub" href="#">Open</a></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- AI Error Detection -->
+      <section id="ai-errors">
+        <div class="section-head">
+          <h3 class="section-title">AI Error Detection Portfolio</h3>
+          <div><small class="muted">Click any card to inspect details & download a mini report.</small></div>
+        </div>
+        <p class="section-sub">Real examples of AI-generated image flaws and my expert analyses.</p>
+        <br>
+        <div class="grid" id="ai-grid">
+          <article class="card" data-id="case-1">
+            <div class="thumb"><img src="./images/4-fingers-for-girl-and-the-profile-picture-on-the-man-phone-is-weirdly-placed.png" alt="Case 1" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Case 1 — Anatomical & UI Inconsistencies</strong><span class="badge">Visual</span></div>
+              <p>Head rotation beyond natural range, several elements show unrealistic anatomy and interface placement.</p>
+              <div class="card-actions"><button class="btn btn-sub" data-open="case-1">Inspect</button></div>
+            </div>
+          </article>
+
+          <article class="card" data-id="case-2">
+            <div class="thumb"><img src="./images/head-of-students-weirdly-turn-to-the-back.png" alt="Case 2" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Case 2 — Classroom Perspective & Anatomy Issues </strong><span class="badge">Scene</span></div>
+              <p>Stylized classroom scene with multiple AI rendering errors.</p>
+              <div class="card-actions"><button class="btn btn-sub" data-open="case-2">Inspect</button></div>
+            </div>
+          </article>
+
+          <article class="card" data-id="case-3">
+            <div class="thumb"><img src="./images/four-right-fingers-not-holding-brush-well.png" alt="Floating object" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Case 3 — Hand Anatomy & Object Interaction</strong><span class="badge">Physics</span></div>
+              <p>Cartoon scene with noticeable hand and brush handling issues</p>
+              <div class="card-actions"><button class="btn btn-sub" data-open="case-3">Inspect</button></div>
+            </div>
+          </article>
+
+          <article class="card" data-id="case-4">
+            <div class="thumb"><img src="./images/3-visible-fingers-on-right-and-4-on-left-and-jargon-tags-like-inr.png" alt="Extra limb" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Case 4 — Tag Accuracy & Hand Anatomy</strong><span class="badge">Text Rendering</span></div>
+              <p>Teaching scene with incorrect HTML labels and finger rendering issues</p>
+              <div class="card-actions"><button class="btn btn-sub" data-open="case-4">Inspect</button></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-head"><h3 class="section-title">Contact</h3></div>
+        <p class="section-sub" style="padding: 1rem;">Let's collaborate — educational tools, AI integration, or dataset auditing.</p>
+
+        <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+          <form id="contact-form" style="flex:1;min-width:300px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:16px;border-radius:12px;box-shadow:var(--shadow-1)">
+            <label style="display:block;margin-bottom:8px;color:var(--muted-color)">Name
+              <input name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);margin-top:8px"/>
+            </label>
+
+            <label style="display:block;margin-bottom:8px;color:var(--muted-color)">Email
+              <input name="email" type="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);margin-top:8px"/>
+            </label>
+
+            <label style="display:block;margin-bottom:8px;color:var(--muted-color)">Message
+              <textarea name="message" rows="5" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);margin-top:8px"></textarea>
+            </label>
+
+            <div style="display:flex;gap:10px;align-items:center">
+              <button class="btn btn-main" type="submit">Send message</button>
+              <button type="button" id="email-btn" class="btn btn-sub">Email me</button>
+            </div>
+            <p id="form-msg" style="color:var(--muted-color);margin-top:10px"></p>
+          </form>
+
+          <aside style="width:320px;min-width:220px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:16px;border-radius:12px;box-shadow:var(--shadow-1)">
+            <h4 style="margin:0 0 8px">Contact</h4>
+            <p style="color:var(--muted-color);margin:0 0 8px">edlysolutions@gmail.com<br/>Lagos, Nigeria</p>
+            <div style="display:flex;gap:8px;margin-top:12px">
+              <a class="btn btn-sub" href="https://github.com/danieldave">GitHub</a>
+              <a class="btn btn-sub" href="www.linkedin.com/in/olusoji-daniel-ayoola">LinkedIn</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="text-align:center;color:var(--muted-color);padding:18px 0">© <span id="year"></span> Master Dan — AI Trainer & Frontend Engineer · Lagos, Nigeria</div>
+    </footer>
+
+    <!-- WhatsApp CTA -->
+    <a class="whatsapp" href="https://wa.me/2348142908202?text=Hi%20Master%20Dan%2C%20I%20found%20your%20portfolio" target="_blank" aria-label="WhatsApp">💬 Chat</a>
+
+  </div>
+
+  <!-- Modal overlay -->
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div>
+        <img id="modal-img" src="" alt="Case image" />
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h2 id="modal-title">Case title</h2>
+          <button id="close-overlay" class="modal-close close" aria-label="Close">✕</button>
+        </div>
+
+        <p id="modal-desc" style="color:var(--muted-color)"></p>
+
+        <h4 style="margin-top:12px">Detected errors</h4>
+        <ul id="modal-errors" style="color:var(--muted-color);margin-left:10px"></ul>
+
+        <h4 style="margin-top:12px">Severity & Notes</h4>
+        <p id="modal-notes" style="color:var(--muted-color)"></p>
+
+        <div style="margin-top:14px;display:flex;gap:8px">
+          <a id="open-image" class="btn btn-sub" href="#" target="_blank">Open image</a>
+          <!-- <a id="download-report" class="btn btn-sub" href="#">Download report</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- App logic: modal, theme, GSAP micro-animations, PWA registration -->
+<script>
+(() => {
+  // Cases data (same as earlier)
+  const cases = {
+    'case-1': { title:'Case 1 — Anatomical & UI Inconsistencies', img:'./images/4-fingers-for-girl-and-the-profile-picture-on-the-man-phone-is-weirdly-placed.png', desc:'Several elements show unrealistic anatomy and interface placement.', errors:['Student’s raised hand has four fingers instead of five','Some children’s hands appear simplified or anatomically inconsistent','The profile picture on the man’s phone is misaligned and not anchored properly in the UI','Tablet UI elements float without consistent perspective alignment','Light reflections on devices do not match the classroom’s main light direction'], notes:'Severity: Medium — Mostly stylization issues, but notable anatomical and UI-placement inaccuracies that break realism.' },
+    'case-2': { title:'Case 2 — Classroom Perspective & Anatomy Issues', img:'./images/head-of-students-weirdly-turn-to-the-back.png', desc:'Stylized classroom scene with multiple AI rendering errors.', errors:['inconsistent laptop designs (some missing keyboards, mismatched proportions)','student arm anatomy distortion (boy in yellow: forearm-to-shoulder length unrealistic)','perspective mismatch in desks and chairs (rear rows skewed, impossible angle)','lighting artifacts/glow spots on teacher’s clothing with no light source','headset wire clipping into neck area'], notes:'Severity: Medium — Errors are noticeable in educational or professional contexts but acceptable for playful illustration styles.' },
+    'case-3': { title:'Case 3 — Hand Anatomy & Object Interaction', img:'./images/four-right-fingers-not-holding-brush-well.png', desc:'Cartoon scene with noticeable hand and brush handling issues', errors:['incorrect brush grip (brush floating between fingers, no proper contact)','right hand finger anatomy simplified/merged (four fingers blending, unclear joint structure)','inconsistent hanging sign perspectives (labels suspended at impossible angles)','easel legs lack consistent perspective depth','backpack strap attachment unclear on shoulder'], notes:'Severity: Medium — Stylized art masks some issues, but hand interaction with objects is visibly incorrect for professional educational use.' },
+    'case-4': { title:'Case 4 — Tag Accuracy & Hand Anatomy', img:'./images/3-visible-fingers-on-right-and-4-on-left-and-jargon-tags-like-inr.png', desc:'Teaching scene with incorrect HTML labels and finger rendering issues', errors:['incorrect HTML tag text (“<in1>” instead of valid tag like <li> or <input>)','right hand pointer grip lacks defined fingers (merged shapes, no thumb placement)','left hand shows inconsistent finger count and joint structure','projection screen perspective misaligned with wall angle','helmet neck ring merges into backpack straps unnaturally'], notes:'Severity: Medium — Educational context makes incorrect tag text and hand rendering more noticeable and potentially misleading.' }
+  };
+
+  // DOM refs
+  const year = document.getElementById('year'); if(year) year.textContent = new Date().getFullYear();
+  const overlay = document.getElementById('overlay');
+  const modalImg = document.getElementById('modal-img');
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const modalErrors = document.getElementById('modal-errors');
+  const modalNotes = document.getElementById('modal-notes');
+  const openImage = document.getElementById('open-image');
+
+  // open modal handlers
+  document.querySelectorAll('[data-open]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = btn.getAttribute('data-open');
+      const data = cases[id];
+      if(!data) return;
+      modalImg.src = data.img;
+      modalTitle.textContent = data.title;
+      modalDesc.textContent = data.desc;
+      modalErrors.innerHTML = '';
+      data.errors.forEach(err => { const li = document.createElement('li'); li.textContent = err; modalErrors.appendChild(li); });
+      modalNotes.textContent = data.notes;
+      openImage.href = data.img;
+      overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+      // focus trap simple
+      document.getElementById('close-overlay').focus();
+      // GSAP micro pop
+      if(window.gsap) gsap.from('.modal',{duration:0.45, y:12, opacity:0, ease:'power2.out'});
+    });
+  });
+
+  // close modal
+  const closeOverlay = () => { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); }
+  document.getElementById('close-overlay').addEventListener('click', closeOverlay);
+  overlay.addEventListener('click', (e) => { if(e.target === overlay) closeOverlay(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeOverlay(); });
+
+  // theme toggle (persist)
+  const THEME_KEY = 'md_theme';
+  const root = document.documentElement;
+  function applyTheme(t){
+    if(t === 'light'){ root.classList.add('theme-light'); } else { root.classList.remove('theme-light'); }
+  }
+  const saved = localStorage.getItem(THEME_KEY) || 'dark';
+  applyTheme(saved);
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const next = root.classList.contains('theme-light') ? 'dark' : 'light';
+    applyTheme(next);
+    localStorage.setItem(THEME_KEY, next);
+  });
+
+  // reveal on scroll (lightweight)
+  const reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && reveals.length){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(ent => {
+        if(ent.isIntersecting){ ent.target.classList.add('in'); io.unobserve(ent.target); }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => io.observe(r));
+  } else { reveals.forEach(r => r.classList.add('in')); }
+
+  // contact form (demo)
+  const form = document.getElementById('contact-form'), formMsg = document.getElementById('form-msg');
+  if(form){
+    form.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      const fd = new FormData(form);
+      if(!fd.get('name')||!fd.get('email')||!fd.get('message')){ formMsg.textContent = 'Please complete all fields.'; return; }
+      formMsg.textContent = 'Sending...';
+      setTimeout(()=>{ form.reset(); formMsg.textContent = 'Thanks — I will reply to ' + fd.get('email'); }, 900);
+    });
+  }
+
+  // email quick button
+  const emailBtn = document.getElementById('email-btn');
+  if(emailBtn) emailBtn.addEventListener('click', ()=> {
+    window.location.href = 'mailto:edlysolutions@gmail.com?subject=Inquiry';
+  });
+
+  // Smooth internal links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if(href.length > 1){ e.preventDefault(); const el = document.querySelector(href); if(el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 20, behavior: 'smooth' }); }
+    });
+  });
+
+  // PWA service worker registration (if service-worker.js exists at root)
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/service-worker.js').then(()=>{ console.log('SW registered'); }).catch(()=>{});
+  }
+})();
+</script>
+
+<!--
+Service worker example (save as /service-worker.js at site root)
+---------------------------------------------------------------
+const CACHE = 'masterdan-v1';
+const ASSETS = ['/', '/index.html', '/manifest.webmanifest',
+  '/mnt/data/A_vibrant_3D-rendered_digital_illustration_showcas.png',
+  '/mnt/data/A_3D-rendered_digital_illustration_depicts_a_vibra.png'
+];
+self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS))); self.skipWaiting(); });
+self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
+self.addEventListener('fetch', e => {
+  if(e.request.method !== 'GET') return;
+  e.respondWith(caches.match(e.request).then(res => res || fetch(e.request).then(fetchRes => { const clone = fetchRes.clone(); caches.open(CACHE).then(c => c.put(e.request, clone)); return fetchRes; })));
+});
+-->
+
+<!--
+Manifest example (save as /manifest.webmanifest)
+------------------------------------------------
+{
+  "name":"Master Dan — AI Portfolio",
+  "short_name":"MasterDan",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#F8F6F0",
+  "theme_color":"#D4AF37",
+  "icons":[{"src":"/icons/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/icons/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}]
+}
+-->
+
+</body>
+</html>

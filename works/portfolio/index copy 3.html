@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Master Dan — AI Error Detection Portfolio (Revamped)</title>
+  <meta name="description" content="Master Dan — AI-driven frontend engineer & kids coding educator. Fast, modern portfolio with live AI Error Detection cases and PWA support." />
+
+  <!-- Preload hero (local file) -->
+  <link rel="preload" href="/mnt/data/A_vibrant_3D-rendered_digital_illustration_showcas.png" as="image">
+
+  <!-- Manifest (save file as manifest.webmanifest at webroot) -->
+  <!--
+  { "name": "Master Dan — AI Portfolio", "short_name":"MasterDan", "start_url":"/", "display":"standalone", "background_color":"#071021", "theme_color":"#00e5ff", "icons":[{"src":"/icons/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/icons/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}] }
+  -->
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <!-- Styles: world-class, compact, accessible -->
+  <style>
+    :root{
+      --accent:#00e5ff; --muted:#9aa6b2; --bg:#071021; --panel:#0e1420; --text:#e6f7ff;
+      --glass: rgba(255,255,255,0.03); --radius:14px; --maxw:1200px; --gap:20px; --fw-medium:600;
+      --shadow-soft: 0 8px 30px rgba(2,6,12,0.6);
+      --ui-ease: cubic-bezier(.2,.9,.2,1);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#04060a);color:var(--text);-webkit-font-smoothing:antialiased}
+    .page{max-width:var(--maxw);margin:0 auto;padding:32px}
+
+    /* Header */
+    header{position:sticky;top:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);backdrop-filter: blur(8px);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow-soft);margin-bottom:18px}
+    .header-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+    .brand-logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6fe8ff);box-shadow:0 6px 22px rgba(0,229,255,0.08);display:inline-block}
+    .brand-title{font-weight:700;letter-spacing:0.2px}
+    nav{display:flex;gap:10px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px;transition:all 220ms var(--ui-ease)}
+    nav a:hover{color:var(--text);background:var(--glass);transform:translateY(-2px)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:22px 0}
+    .headline{font-size:34px;line-height:1.03;margin:0 0 8px;font-weight:700}
+    .subtext{color:var(--muted);max-width:60ch;margin:0 0 14px}
+    .ctas{display:flex;gap:12px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:var(--fw-medium);text-decoration:none}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#73f0ff);color:#021020;box-shadow:0 8px 30px rgba(0,229,255,0.07)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.05);color:var(--text)}
+    .skills{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+    .skill{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:999px;color:var(--muted);font-weight:600;font-size:13px}
+
+    .hero-art{border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(2,6,12,0.7);display:flex;align-items:center;justify-content:center}
+    .hero-art img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Section base */
+    section{margin-top:28px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:12px}
+    .section-title{font-size:20px;margin:0;font-weight:700}
+    .section-lead{color:var(--muted);margin:6px 0 12px}
+
+    /* About */
+    .about{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:14px;display:flex;gap:18px;align-items:center;box-shadow:var(--shadow-soft)}
+    .avatar{width:96px;height:96px;border-radius:14px;object-fit:cover;border:2px solid rgba(255,255,255,0.03)}
+    .about-meta h3{margin:0}
+    .about-meta p{color:var(--muted);margin:8px 0 0}
+
+    /* Portfolio grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(3,10,18,0.35);display:flex;flex-direction:column}
+    .thumb{height:180px;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .card-body{padding:14px;display:flex;flex-direction:column;gap:8px}
+    .meta-row{display:flex;justify-content:space-between;align-items:center}
+    .badge{background:rgba(0,0,0,0.32);padding:6px 8px;border-radius:999px;color:var(--accent);font-weight:700;font-size:12px}
+    .card p{color:var(--muted);margin:0}
+    .card-actions{display:flex;justify-content:flex-end}
+
+    /* Overlay project detail */
+    .overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:30px;background:linear-gradient(180deg, rgba(2,6,12,0.7), rgba(2,6,12,0.85));backdrop-filter: blur(6px);z-index:120}
+    .overlay.open{display:flex}
+    .panel{width:100%;max-width:1100px;background:var(--panel);border-radius:12px;padding:18px;box-shadow:0 30px 80px rgba(2,6,12,0.7);display:grid;grid-template-columns:1fr 380px;gap:18px;max-height:86vh;overflow:auto}
+    .panel img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+    .panel h2{margin:0 0 8px}
+    .panel .list{color:var(--muted);margin:8px 0 0}
+    .close{background:transparent;border:0;color:var(--muted);font-size:18px;cursor:pointer}
+
+    /* WhatsApp CTA */
+    .whatsapp{position:fixed;right:18px;bottom:18px;background:linear-gradient(135deg,#25D366,#128C7E);color:white;border-radius:999px;padding:12px 14px;box-shadow:0 10px 30px rgba(0,0,0,0.4);display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;z-index:130}
+
+    /* Footer */
+    footer{margin-top:34px;padding:28px 0;text-align:center;color:var(--muted)}
+
+    /* Responsive tweaks */
+    @media(max-width:980px){.hero{grid-template-columns:1fr 320px}.panel{grid-template-columns:1fr}} 
+    @media(max-width:700px){.hero{grid-template-columns:1fr}.header-row{flex-direction:column;align-items:flex-start}.brand-title{font-size:16px}.panel{padding:12px}}
+
+    /* Subtle animation helpers (no library required) */
+    .reveal{opacity:0;transform:translateY(10px);transition:opacity 520ms var(--ui-ease), transform 520ms var(--ui-ease)}
+    .reveal.in{opacity:1;transform:none}
+  </style>
+
+  <!-- Load GSAP for optional advanced micro-interactions (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="header-row">
+        <a class="brand" href="#home"><span class="brand-logo" aria-hidden></span><span class="brand-title">Master Dan</span></a>
+        <nav>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#ai-errors">AI Errors</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1 class="headline reveal">AI-Driven Frontend Engineer<br><span style="color:var(--accent)">Creative Coding Educator</span></h1>
+          <p class="subtext reveal">I build fast, accessible AI experiences for schools, creators and small businesses — and train models to be less wrong.</p>
+
+          <div class="ctas reveal">
+            <a class="btn btn-primary" href="#portfolio">View My Work</a>
+            <a class="btn btn-ghost" href="#contact">Work with me</a>
+          </div>
+
+          <div class="skills reveal" style="margin-top:10px">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">AI Tools</span>
+            <span class="skill">Education</span>
+          </div>
+        </div>
+
+        <div class="hero-art reveal">
+          <!-- fast local hero image for immediate paint (already uploaded) -->
+          <img src="/mnt/data/A_vibrant_3D-rendered_digital_illustration_showcas.png" alt="Futuristic classroom art" loading="eager"/>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-head">
+          <h3 class="section-title">About</h3>
+        </div>
+        <p class="section-lead">Brief background and what I do.</p>
+
+        <div class="about reveal">
+          <img class="avatar" src="https://img.icons8.com/fluency/120/00e5ff/user-male-circle.png" alt="Avatar" />
+          <div class="about-meta">
+            <h3>Master Dan</h3>
+            <p class="muted">AI Frontend Engineer • Kids Coding Educator • AI Tools Creator</p>
+            <p style="margin-top:8px;color:var(--muted)">I design and implement educational AI products and training datasets that help models behave better in real classroom scenarios. I specialize in visual QA, prompt engineering, and front-end integration for AI features.</p>
+            <p style="margin-top:10px;color:var(--muted)"><strong>Location:</strong> Lagos, Nigeria · <strong>Email:</strong> master.dan@example.com</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio">
+        <div class="section-head">
+          <h3 class="section-title">Portfolio — Selected Projects</h3>
+        </div>
+        <p class="section-lead">Interactive AI components, education tools, and frontend systems.</p>
+
+        <div class="grid reveal" id="portfolio-grid">
+          <!-- optimized external placeholder images (fast CDN, compressed) -->
+          <article class="card">
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=60" alt="Lesson Plan" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Lesson Plan Generator</strong><span class="badge">Live</span></div>
+              <p>AI-powered lesson plans tailored to objectives and age groups — editable templates for teachers.</p>
+              <div class="card-actions"><a class="btn btn-ghost" href="#">Open</a></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1513161455079-7dc1de15ef3b?auto=format&fit=crop&w=1200&q=60" alt="Scratch Story" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Scratch Story Creator</strong><span class="badge">Edu</span></div>
+              <p>Transforms narrative prompts into Scratch-ready story projects for kids.</p>
+              <div class="card-actions"><a class="btn btn-ghost" href="#">Open</a></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=60" alt="Component Gen" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>AI → HTML/CSS Component Generator</strong><span class="badge">Tool</span></div>
+              <p>Generates responsive components from text prompts — production-ready snippets.</p>
+              <div class="card-actions"><a class="btn btn-ghost" href="#">Open</a></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="ai-errors">
+        <div class="section-head">
+          <h3 class="section-title">AI Error Detection Portfolio</h3>
+          <div><small class="muted">Click any case to inspect details & download a mini-report.</small></div>
+        </div>
+        <p class="section-lead">Real examples of AI-generated image flaws and my expert analyses.</p>
+
+        <div class="grid" id="ai-grid">
+          <!-- Case cards (local images + optimized external placeholders) -->
+          <article class="card" data-id="case-1">
+            <div class="thumb"><img src="/mnt/data/A_3D-rendered_digital_illustration_depicts_a_vibra.png" alt="Case 1" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Case 1 — Orientation & Anatomy</strong><span class="badge">Visual</span></div>
+              <p>Head rotation beyond natural range; laptop orientation wrong; reflections inconsistent.</p>
+              <div class="card-actions"><button class="btn btn-ghost" data-open="case-1">Inspect</button></div>
+            </div>
+          </article>
+
+          <article class="card" data-id="case-2">
+            <div class="thumb"><img src="/mnt/data/A_vibrant_3D-rendered_digital_illustration_showcas.png" alt="Case 2" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Case 2 — Perspective & Lighting</strong><span class="badge">Scene</span></div>
+              <p>Perspective mismatch; HDR-like bloom; mesh seams visible around arm.</p>
+              <div class="card-actions"><button class="btn btn-ghost" data-open="case-2">Inspect</button></div>
+            </div>
+          </article>
+
+          <article class="card" data-id="case-3">
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=60" alt="Floating object" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Case 3 — Floating Object</strong><span class="badge">Physics</span></div>
+              <p>Object appears slightly above surface; shadow disconnected from base.</p>
+              <div class="card-actions"><button class="btn btn-ghost" data-open="case-3">Inspect</button></div>
+            </div>
+          </article>
+
+          <article class="card" data-id="case-4">
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=60" alt="Extra limb" loading="lazy"></div>
+            <div class="card-body">
+              <div class="meta-row"><strong>Case 4 — Extra Limb Artifact</strong><span class="badge">Anatomy</span></div>
+              <p>Subtle extra limb duplication; clothing folding inconsistency.</p>
+              <div class="card-actions"><button class="btn btn-ghost" data-open="case-4">Inspect</button></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-head"><h3 class="section-title">Contact</h3></div>
+        <p class="section-lead">Let's work — educational tools, AI integration, or training datasets.</p>
+
+        <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+          <form id="contact-form" style="flex:1;min-width:300px;background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:16px;border-radius:12px">
+            <label style="display:block;margin-bottom:8px;color:var(--muted)">Name<input name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);margin-top:6px"/></label>
+            <label style="display:block;margin-bottom:8px;color:var(--muted)">Email<input name="email" type="email" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);margin-top:6px"/></label>
+            <label style="display:block;margin-bottom:8px;color:var(--muted)">Message<textarea name="message" rows="5" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);margin-top:6px"></textarea></label>
+            <div style="display:flex;gap:10px;align-items:center"><button class="btn btn-primary" type="submit">Send message</button><button type="button" id="email-btn" class="btn btn-ghost">Email me</button></div>
+            <p id="form-msg" style="color:var(--muted);margin-top:8px"></p>
+          </form>
+
+          <aside style="width:320px;min-width:240px;background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent);padding:16px;border-radius:12px;box-shadow:var(--shadow-soft)">
+            <h4 style="margin:0 0 8px">Contact</h4>
+            <p style="color:var(--muted);margin:0 0 8px">master.dan@example.com<br/>Lagos, Nigeria</p>
+            <div style="display:flex;gap:8px;margin-top:12px"><a class="btn btn-ghost" href="#">Twitter</a><a class="btn btn-ghost" href="#">GitHub</a><a class="btn btn-ghost" href="#">LinkedIn</a></div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="text-align:center;color:var(--muted);padding:18px 0">© <span id="year"></span> Master Dan — AI Trainer & Frontend Engineer · Lagos, Nigeria</div>
+    </footer>
+
+    <!-- Floating WhatsApp CTA (change phone) -->
+    <a class="whatsapp" href="https://wa.me/2348012345678?text=Hi%20Master%20Dan%2C%20I%20found%20your%20portfolio%20and%20I%27m%20interested" target="_blank" aria-label="Contact on WhatsApp">💬 WhatsApp</a>
+
+  </div>
+
+  <!-- Overlay panel (modal) -->
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="panel" role="dialog" aria-modal="true">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="display:flex;gap:12px;align-items:center"><strong id="project-title">Case</strong></div>
+        <div><button class="close" id="close-overlay">✕</button></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr;gap:12px">
+        <img id="panel-img" src="" alt="case image" style="width:100%;height:420px;object-fit:cover;border-radius:10px" />
+        <div>
+          <h2 id="panel-heading">Heading</h2>
+          <p id="panel-desc" style="color:var(--muted)"></p>
+
+          <h4 style="margin-top:12px">Detected Errors</h4>
+          <ul id="panel-errors" style="color:var(--muted)"></ul>
+
+          <h4 style="margin-top:12px">Severity & Notes</h4>
+          <p id="panel-notes" style="color:var(--muted)"></p>
+
+          <div style="margin-top:14px;display:flex;gap:8px">
+            <a id="open-img" class="btn btn-ghost" href="#" target="_blank">Open image</a>
+            <a id="download-report" class="btn btn-ghost" href="#">Download report</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts: app logic, modal, animations, PWA registration -->
+  <script>
+    // Basic wiring + improved modal behavior + small animations using GSAP when available
+    (function(){
+      // data cases (same as before, kept concise)
+      const cases = {
+        'case-1':{title:'Case 1 — Orientation & Anatomy', img:'/mnt/data/A_3D-rendered_digital_illustration_depicts_a_vibra.png', desc:'A classroom render with orientation and anatomy errors.', errors:['Student head rotated beyond natural range','Laptop orientation wrong','Inconsistent reflections'], notes:'Severity: Medium. Fix with pose priors + targeted dataset examples.'},
+        'case-2':{title:'Case 2 — Perspective & Lighting', img:'/mnt/data/A_vibrant_3D-rendered_digital_illustration_showcas.png', desc:'Perspective mismatch and bloom artifacts.', errors:['Wrong laptop face angle','Overexposed bloom','Mesh seam blending'], notes:'Severity: Medium-Low. Tweak postprocessing and camera angle constraints.'},
+        'case-3':{title:'Case 3 — Floating Object', img:'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=60', desc:'Object not grounded; shadow mismatch.', errors:['Object-not-grounded','Shadow misalignment'], notes:'Severity: Low-Medium. Check depth compositing.'},
+        'case-4':{title:'Case 4 — Extra Limb Artifact', img:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=60', desc:'Extra limb duplication artifact.', errors:['Limb duplication','Clothing fold mismatch'], notes:'Severity: High. Requires dataset cleaning.'}
+      };
+
+      // DOM refs
+      const year = document.getElementById('year'); if(year) year.textContent = new Date().getFullYear();
+      const overlay = document.getElementById('overlay');
+      const panelImg = document.getElementById('panel-img');
+      const panelHeading = document.getElementById('panel-heading');
+      const panelDesc = document.getElementById('panel-desc');
+      const panelErrors = document.getElementById('panel-errors');
+      const panelNotes = document.getElementById('panel-notes');
+      const projectTitle = document.getElementById('project-title');
+      const openImg = document.getElementById('open-img');
+
+      // open handlers
+      document.querySelectorAll('[data-open]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const id = btn.getAttribute('data-open');
+          const data = cases[id]; if(!data) return;
+          panelImg.src = data.img; panelHeading.textContent = data.title; panelDesc.textContent = data.desc; projectTitle.textContent = data.title; panelErrors.innerHTML=''; data.errors.forEach(e=>{const li=document.createElement('li');li.textContent=e;panelErrors.appendChild(li)}); panelNotes.textContent=data.notes; openImg.href=data.img;
+
+          // show overlay
+          overlay.classList.add('open'); overlay.setAttribute('aria-hidden','false');
+          // focus trap (basic)
+          setTimeout(()=>{document.getElementById('close-overlay').focus()},120);
+
+          // subtle GSAP pop animation if available
+          if(window.gsap){ gsap.from('.panel',{duration:0.5,y:12,opacity:0,ease:'power2.out'}); }
+        })
+      });
+
+      // close
+      document.getElementById('close-overlay').addEventListener('click', closeOverlay);
+      overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeOverlay(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeOverlay(); });
+      function closeOverlay(){ overlay.classList.remove('open'); overlay.setAttribute('aria-hidden','true'); }
+
+      // contact form (mock) - lightweight
+      const form = document.getElementById('contact-form'); const formMsg = document.getElementById('form-msg');
+      if(form){ form.addEventListener('submit', (ev)=>{ ev.preventDefault(); const fd=new FormData(form); if(!fd.get('name')||!fd.get('email')||!fd.get('message')){ formMsg.textContent='Please complete all fields.'; return;} formMsg.textContent='Sending...'; setTimeout(()=>{ form.reset(); formMsg.textContent='Thanks! I will reply to '+fd.get('email'); },900); }); }
+
+      // email quick button
+      const emailBtn = document.getElementById('email-btn'); if(emailBtn){ emailBtn.addEventListener('click', ()=>{ window.location.href='mailto:master.dan@example.com?subject=Project%20inquiry'; }); }
+
+      // reveal on scroll - lightweight IntersectionObserver
+      const reveals = document.querySelectorAll('.reveal');
+      if(reveals.length && 'IntersectionObserver' in window){ const io=new IntersectionObserver((entries)=>{ entries.forEach(ent=>{ if(ent.isIntersecting){ ent.target.classList.add('in'); io.unobserve(ent.target);} }); },{threshold:0.12}); reveals.forEach(r=>io.observe(r)); } else { reveals.forEach(r=>r.classList.add('in')); }
+
+      // lazyload already via loading=lazy on imgs
+
+      // PWA: register service worker if available
+      if('serviceWorker' in navigator){ navigator.serviceWorker.register('/service-worker.js').then(()=>{ console.log('Service worker registered'); }).catch(()=>{}); }
+
+      // small UX: smooth internal links
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click',(e)=>{ const href=a.getAttribute('href'); if(href.length>1){ e.preventDefault(); const el=document.querySelector(href); if(el){ window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-20, behavior:'smooth'}); } } }); });
+
+    })();
+  </script>
+
+  <!--
+    Service worker (save as /service-worker.js at site root):
+    --------------------------------------------------------
+    const CACHE_NAME = 'masterdan-v1';
+    const ASSETS = [
+      '/', '/index.html', '/manifest.webmanifest', '/mnt/data/A_vibrant_3D-rendered_digital_illustration_showcas.png', '/mnt/data/A_3D-rendered_digital_illustration_depicts_a_vibra.png'
+    ];
+    self.addEventListener('install', (e)=>{ e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(ASSETS))); self.skipWaiting(); });
+    self.addEventListener('activate', (e)=>{ e.waitUntil(self.clients.claim()); });
+    self.addEventListener('fetch', (e)=>{ if(e.request.method !== 'GET') return; e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(res=>{ const clone=res.clone(); caches.open(CACHE_NAME).then(c=>c.put(e.request, clone)); return res; }))); });
+
+    Notes: place this file at the site root so registration works. Replace asset URLs if you host images elsewhere.
+  -->
+
+  <!--
+    Manifest file (save as /manifest.webmanifest):
+    ------------------------------------------------
+    {
+      "name": "Master Dan — AI Portfolio",
+      "short_name": "MasterDan",
+      "start_url": "/",
+      "display": "standalone",
+      "background_color": "#071021",
+      "theme_color": "#00e5ff",
+      "icons": [
+        {"src": "/icons/android-chrome-192x192.png", "sizes":"192x192", "type":"image/png"},
+        {"src": "/icons/android-chrome-512x512.png", "sizes":"512x512", "type":"image/png"}
+      ]
+    }
+  -->
+
+</body>
+</html>
