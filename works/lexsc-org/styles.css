@@ -1,0 +1,413 @@
+/* --- General Styles --- */
+:root {
+    /* Elite Color Palette: Deep Teal, Gold Accent */
+    --primary-color: #004d40; /* Deep Teal/Forest Green */
+    --secondary-color: #00796b; /* Medium Teal Green */
+    --accent-color: #ffb300;   /* Warm Gold/Amber Accent */
+    
+    --dark-text: #212121; 
+    --light-text: #f4f4f4;
+    --background-light: #ffffff; /* Pure White */
+    --background-dark: #f5f5f5; /* Subtle Light Grey */
+    --border-color: #ccc;
+    --shadow-light: rgba(0, 0, 0, 0.15); 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--background-light);
+    overflow-x: hidden; /* Prevents horizontal scroll from animations */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--accent-color); /* Gold hover on links */
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+    color: var(--dark-text);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); 
+}
+
+h1 { font-size: 3.2em; font-weight: 700;}
+h2 { font-size: 2.5em; text-align: center; margin-bottom: 50px; font-weight: 700;}
+h3 { font-size: 1.8em; font-weight: 700;}
+
+p {
+    margin-bottom: 15px;
+}
+
+.section-padded {
+    padding: 100px 0;
+}
+
+.section-light {
+    padding: 100px 0;
+    background-color: var(--background-dark);
+}
+
+/* --- Utility Animation: Fade In Up --- */
+.wow-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+/* You will need JavaScript to apply this class when elements scroll into view! 
+   For now, we'll apply it to a key element in the contact form */
+
+
+/* --- Buttons (Elite Styling) --- */
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 50px; 
+    font-weight: 700;
+    transition: all 0.4s ease;
+    margin-right: 20px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    text-transform: uppercase;
+}
+
+.btn.primary {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--light-text);
+    border: none;
+}
+
+.btn.primary:hover {
+    transform: translateY(-4px) scale(1.02); /* More aggressive lift */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    opacity: 0.95;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: var(--background-dark);
+    border: 2px solid var(--primary-color);
+}
+
+.btn.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border-color: var(--primary-color);
+}
+
+/* --- Header & NAV BAR (Curvish, Blazing Fire Theme) --- */
+header {
+    background-color: var(--dark-text);
+    padding: 10px 0; /* Reduced vertical padding here */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* The curve effect */
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px;
+    /* Adding a subtle glow effect */
+    border-top: 3px solid var(--accent-color); 
+}
+
+header .container {
+    padding: 10px 20px;
+}
+
+.logo img {
+    height: 45px; 
+    /* The logo should now show up white/inverted */
+    filter: brightness(0) invert(1); 
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+nav ul li a {
+    color: var(--light-text);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    position: relative;
+    overflow: hidden;
+}
+
+nav ul li a:hover {
+    color: var(--dark-text);
+    background-color: var(--accent-color); /* Gold background on hover */
+    /* Subtle pulsing shadow */
+    box-shadow: 0 0 15px var(--accent-color); 
+    transform: translateY(-2px);
+}
+
+/* --- Hero Section (Sleek Movement) --- */
+.hero {
+    background: url('images/hero.jpg') no-repeat center center/cover;
+    padding: 200px 0; 
+    position: relative;
+    /* Adding a subtle slow vertical slide to simulate movement */
+    animation: background-slide 60s ease-in-out infinite alternate;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); 
+}
+
+@keyframes background-slide {
+    from { background-position: center top; }
+    to { background-position: center bottom; }
+}
+
+.hero h1 {
+    /* Subtle scale on load */
+    animation: scale-in 1s ease-out; 
+}
+
+@keyframes scale-in {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* --- Products & Quality (3D Rotation on Hover) --- */
+.product-item, .quality-item {
+    background-color: var(--background-light);
+    border-radius: 12px; 
+    padding: 30px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* For 3D transform */
+    perspective: 1000px; 
+}
+
+.product-item:hover, .quality-item:hover {
+    transform: translateY(-8px) rotateY(2deg); /* Floating and slight 3D rotation */
+    box-shadow: 0 16px 32px rgba(0,0,0,0.2), 0 10px 10px rgba(0,0,0,0.1);
+}
+
+.product-item img {
+    width: 300px;
+    transition: transform 0.5s ease;
+}
+
+.product-item:hover img {
+    transform: scale(1.05); /* Image slight zoom */
+}
+
+/* --- Contact Section (The WOW Contact Form) --- */
+.contact-info, .contact-form {
+    background-color: var(--background-light);
+    padding: 35px;
+    border-radius: 15px; /* Smoother curve */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.contact-form:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2), 0 0 20px var(--secondary-color); /* Subtle color shadow */
+}
+
+.contact-info h3, .contact-form h3 {
+    color: var(--primary-color);
+    /* Gold underline effect */
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 10px;
+    animation: pulse-underline 5s infinite; /* Subtle animation for attention */
+}
+
+@keyframes pulse-underline {
+    0% { border-color: var(--accent-color); }
+    50% { border-color: rgba(255, 179, 0, 0.5); }
+    100% { border-color: var(--accent-color); }
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    /* Sleek border focus */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 179, 0, 0.4); /* Gold focus ring */
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark-text);
+    padding: 30px 0;
+    /* Consistent curve theme */
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px;
+    border-bottom: 3px solid var(--accent-color); /* Mirror top bar */
+}
+
+.social-links a {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* --- Responsive Design (Keep this section) --- */
+@media (max-width: 768px) {
+    /* Adjust curve radii on mobile */
+    header {
+        border-bottom-left-radius: 15px; 
+        border-bottom-right-radius: 15px;
+    }
+    footer {
+        border-top-left-radius: 15px; 
+        border-top-right-radius: 15px;
+    }
+    
+    .hero h1 { font-size: 2.5em; }
+    .hero p { font-size: 1.2em; }
+    h2 { font-size: 2em; }
+    .section-padded, .section-light { padding: 60px 0; }
+    .about-content, .contact-grid { flex-direction: column; }
+    .about-text, .about-image, .contact-info, .contact-form { width: 100%; }
+}
+/* --- Navbar Flex Layout --- */
+.header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+/* --- Hero Section Adjustments --- */
+.hero-content {
+  max-width: 700px;
+  color: white;
+  text-align: left;
+}
+.hero-content h1 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+.hero-content p {
+  color: #eee;
+  margin-bottom: 25px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+/* --- About Section Grid --- */
+.about-grid {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+.about-text { flex: 1; }
+.about-image img { width: 100%; border-radius: 12px; }
+
+/* --- Product Grid --- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* --- Quality Grid --- */
+.quality-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.quality-item img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 15px;
+}
+.quality-item {
+  flex: 1 1 250px;
+  text-align: center;
+}
+
+/* --- Factory Gallery --- */
+.factory-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+.factory-gallery img {
+  width: 100%;
+  border-radius: 8px;
+  transition: transform 0.4s ease;
+}
+.factory-gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* --- Contact Form --- */
+.contact-grid {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.contact-info, .contact-form { flex: 1; }
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+/* --- Footer Layout --- */
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.social-links a {
+  color: var(--light-text);
+  margin: 0 10px;
+  font-size: 1.2em;
+}
+
+/* --- Section Spacing Fix --- */
+.section-light {
+  margin-bottom: 80px;
+}
