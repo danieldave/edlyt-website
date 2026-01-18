@@ -452,7 +452,7 @@
         <button class="btn" type="button" onclick="openQuote()">Request Quote</button>
         <button class="btn btn--ghost" type="button" onclick="openQuickOrder()">Quick Order</button>
       </div>
-      <p class="muted-small">Note: Contact submit will open your email client by default (static site). For production use Formspree or Netlify Forms to capture leads.</p>
+      <!-- <p class="muted-small">Note: Contact submit will open your email client by default (static site). For production use Formspree or Netlify Forms to capture leads.</p> -->
     </form>
   </section>
 
@@ -604,7 +604,7 @@
     function waLinkWith(msg){
       const encoded = encodeURIComponent(msg);
       // universal web link (works on desktop and mobile)
-      return `https://wa.me/?text=${encoded}`;
+      return `https://wa.me/2348060026308?text=${encoded}`;
     }
     waBtn.href = waLinkWith("Hello Grace Touch! I have a question about your services. Please assist."); // default
 
@@ -686,7 +686,7 @@
       if(currentStep === 3){
         const {plain, wa} = orderSummaryText();
         orderSummaryEl.textContent = plain;
-        sendBtn.onclick = ()=> { window.open(`https://wa.me/?text=${encodeURIComponent(plain)}`, '_blank'); };
+        sendBtn.onclick = ()=> { window.open(`https://wa.me/2348060026308?text=${encodeURIComponent(plain)}`, '_blank'); };
         copyBtn.onclick = ()=> {
           navigator.clipboard?.writeText(plain).then(()=> alert('Order text copied to clipboard'));
         };
@@ -696,7 +696,7 @@
     // quick send on sendWhatsApp (also available earlier)
     sendBtn.addEventListener('click', ()=>{
       const {plain} = orderSummaryText();
-      window.open(`https://wa.me/?text=${encodeURIComponent(plain)}`, '_blank');
+      window.open(`https://wa.me/2348060026308?text=${encodeURIComponent(plain)}`, '_blank');
     });
 
     // pre-fill send message when modal opens (best-effort)
