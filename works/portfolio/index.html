@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Master Dan — AI Error Detection (Revamped Palette)</title>
-<meta name="description" content="Master Dan — AI/frontend educator. Fast, elegant portfolio with AI Error Detection cases." />
+<title>Master Dan — Founder & Lead Technologist | Edlyt Solutions</title>
+<meta name="description" content="Master Dan — Founder & Lead Technologist at Edlyt Solutions. AI-driven frontend engineer, educator, and AI error detection specialist." />
+
 
 <!-- preload local hero to speed paint -->
 <link rel="preload" href="/mnt/data/A_vibrant_3D-rendered_digital_illustration_showcas.png" as="image">
@@ -132,10 +133,11 @@
     <!-- Header -->
     <header>
       <div class="header-row">
-        <a class="brand" href="#home">
-          <img src="./images/logo.png" style="width: 100px; height: 100px;" alt="">
-          <span class="brand-title">Edlyt Solutions</span>
-        </a>
+        <a class="brand" href="#home" aria-label="Master Dan">
+  <div class="brand-mark" aria-hidden="true"></div>
+  <span class="brand-title">Master Dan</span>
+</a>
+
 
         <div class="controls">
           <nav>
@@ -155,7 +157,10 @@
     <main>
       <section class="hero" id="home">
         <div>
-          <h1 class="headline reveal">AI-Driven Frontend Engineer — <span class="eyeline">Creative Coding Educator</span></h1>
+<h1 class="headline reveal">
+  Master Dan — <span class="eyeline">AI-Driven Frontend Engineer</span><br/>
+  Creative Coding Educator
+</h1>
           <p class="lead reveal">I build elegant AI experiences for schools, creators and small businesses — fast, accessible, and human-aware. I also audit AI outputs and train models to be less wrong.</p>
 
           <div class="ctas reveal">
@@ -190,9 +195,12 @@
           <img class="avatar" src="./images/profile-img.png" alt="Master Dan avatar">
           <div class="about-meta">
             <h3>Master Dan</h3>
-            <p class="muted">AI Frontend Engineer • Kids Coding Educator • AI Tools Creator</p>
+<p class="muted">
+  Founder / Lead Technologist — <strong>Edlyt Solutions</strong><br/>
+  AI Frontend Engineer • Coding Educator • AI Tools Creator
+</p>
             <p style="margin-top:8px;color:var(--muted-color)">I design and implement educational AI products and training datasets that help models behave better in real classroom scenarios. I specialize in visual QA, prompt engineering, and front-end integration for AI features.</p>
-            <p style="margin-top:10px;color:var(--muted-color)"><strong>Location:</strong> Lagos, Nigeria · <strong>Email:</strong> edlysolutions@gmail.com</p>
+            <p style="margin-top:10px;color:var(--muted-color)"><strong>Location:</strong> Lagos, Nigeria · <strong>Email:</strong> danielolusoji@gmail.com</p>
           </div>
         </div>
       </section>
@@ -308,20 +316,31 @@
           </form>
 
           <aside style="width:320px;min-width:220px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:16px;border-radius:12px;box-shadow:var(--shadow-1)">
-            <h4 style="margin:0 0 8px">Contact</h4>
-            <p style="color:var(--muted-color);margin:0 0 8px">edlysolutions@gmail.com<br/>Lagos, Nigeria</p>
-            <div style="display:flex;gap:8px;margin-top:12px">
-              <a class="btn btn-sub" href="https://github.com/danieldave">GitHub</a>
-              <a class="btn btn-sub" href="www.linkedin.com/in/olusoji-daniel-ayoola">LinkedIn</a>
-            </div>
-          </aside>
+  <h4 style="margin:0 0 6px">Master Dan</h4>
+  <p style="color:var(--muted-color);margin:0 0 8px">
+    Founder / Lead Technologist<br/>
+    <strong>Edlyt Solutions</strong>
+  </p>
+
+  <p style="color:var(--muted-color);margin:0 0 12px">
+    dan@edlytsolutions.site<br/>
+    Lagos, Nigeria
+  </p>
+
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <a class="btn btn-sub" href="https://github.com/danieldave" target="_blank">GitHub</a>
+    <a class="btn btn-sub" href="https://www.linkedin.com/in/olusoji-daniel-ayoola" target="_blank">LinkedIn</a>
+    <a class="btn btn-sub" href="#portfolio">Portfolio</a>
+  </div>
+</aside>
+
         </div>
       </section>
 
     </main>
 
     <footer>
-      <div style="text-align:center;color:var(--muted-color);padding:18px 0">© <span id="year"></span> Master Dan — AI Trainer & Frontend Engineer · Lagos, Nigeria</div>
+      <div style="text-align:center;color:var(--muted-color);padding:18px 0">© <span id="year"></span> Master Dan · Founder & Lead Technologist — Edlyt Solutions</div>
     </footer>
 
     <!-- WhatsApp CTA -->
@@ -445,7 +464,7 @@
   // email quick button
   const emailBtn = document.getElementById('email-btn');
   if(emailBtn) emailBtn.addEventListener('click', ()=> {
-    window.location.href = 'mailto:edlysolutions@gmail.com?subject=Inquiry';
+    window.location.href = 'mailto:danielolusoji@gmail.com?subject=Inquiry';
   });
 
   // Smooth internal links
