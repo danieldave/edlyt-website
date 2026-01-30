@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>THOXNS – Supporting Street Styles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --grey: #7a7a7a;
+      --gold: #c7ab63;
+      --black: #111;
+    }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--grey);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 40px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 28px;
+      letter-spacing: 4px;
+    }
+
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+      text-transform: uppercase;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .circle {
+      width: 380px;
+      height: 380px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 40px 80px rgba(0,0,0,.4);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .circle img {
+      width: 300px;
+      animation: pop .8s ease;
+    }
+
+    h1 {
+      margin-top: 50px;
+      font-size: 48px;
+      letter-spacing: 2px;
+    }
+
+    p {
+      margin-top: 16px;
+      max-width: 500px;
+      color: #eee;
+    }
+
+    .cta {
+      margin-top: 32px;
+      background: linear-gradient(90deg, #f5d97a, #c7ab63);
+      color: black;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      transition: .3s;
+      box-shadow: 0 20px 40px rgba(0,0,0,.3);
+    }
+
+    .cta:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 100px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-size: 13px;
+      color: #ddd;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes pop {
+      from { transform: scale(.7); opacity:0; }
+      to { transform: scale(1); opacity:1; }
+    }
+
+    @media (max-width: 600px) {
+      .circle { width: 280px; height: 280px; }
+      .circle img { width: 220px; }
+      h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">THOXNS</div>
+  <nav>
+    <a href="#">Tees</a>
+    <a href="#">Shorts</a>
+    <a href="#">Trousers</a>
+    <a href="#">Tracksuits</a>
+  </nav>
+</header>
+
+<main>
+  <div class="circle">
+    <!-- Replace with your product -->
+
+     <img src="../../../../ONI PRECIOUS.png" alt="" srcset="">
+
+     <img src="../../../../oni_precious.png" alt="" srcset="">
+
+
+
+    <img src="./assets/images/thoxns.png" alt="THOXNS Shirt">
+  </div>
+
+  <h1>SUPPORTING STREET STYLES</h1>
+  <p>Premium streetwear built for culture, movement, and individuality.</p>
+
+  <button class="cta" onclick="shopNow()">
+    🛒 SHOP NOW
+  </button>
+</main>
+
+<footer>
+  <span>About</span>
+  <span>Contact</span>
+  <span>Privacy</span>
+</footer>
+
+<script>
+  function shopNow() {
+    alert("Shop coming soon 🚀");
+  }
+</script>
+
+</body>
+</html>
